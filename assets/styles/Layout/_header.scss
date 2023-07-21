@@ -1,0 +1,73 @@
+.navbar {
+    background: $primary;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 1em 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.navbar-item {
+    display: flex;
+    gap: 6em;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-right: 1.5em;
+}
+
+.navbar-link {
+    font-family: $font-primary;
+    color: $tertiary;
+}
+
+.navbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: var(--border-radius);
+    background: var(--secondary);
+    z-index: 999;
+    top: 100%;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.dropdown:hover{
+    &-content {
+        display: block;
+    }
+    
+}
+/*Ca permet de sélection tous les élément enfant direct*/
+.dropdown-content > * {
+    padding: .6em 1em;
+    width: 100%;
+}
+/*Ca permet de sélection tous les élément enfant direct sauf le dernier*/
+.dropdown-content > *:not(:last-child) {
+    border-bottom: 1px solid grey;
+}
