@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Telephones;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -28,6 +29,19 @@ class AppFixtures extends Fixture
             ->setPrenom('Nicolas');
 
         $manager->persist($user);
+
+        for ($i = 0; $i <= 10; $i++) {
+            $telephone = new Telephones;
+            $telephone
+                ->setNom("Iphone $i")
+                ->setPrix(256.45)
+                ->setQuantity(55)
+                ->setMetaTitle("Téléphone Iphone $i")
+                ->setMetaDescription("Un téléphone qu'il est bien")
+                ->setDescription("Un téléphone qu'il est bien")
+                ->setEnable(1);
+            $manager->persist($telephone);
+        }
         $manager->flush();
     }
 }
