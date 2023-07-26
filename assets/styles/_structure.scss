@@ -4,80 +4,80 @@
     outline: 0;
   }
   
-  html,
-  body {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: $font-primary;
-    font-size: 16px;
-    font-weight: 400;
-    color: $text-color;
-    line-height: 28px;
-    transition: 0.5s;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $heading;
-    margin-bottom: 0;
-  }
-  
-  h1 {
-    font-size: 35px;
-    font-weight: 600;
-    line-height: 45px;
-  }
-  
-  h2 {
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 43px;
-    letter-spacing: -0.8px;
-  }
-  
-  h3 {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 32px;
-  }
-  
-  h4 {
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 30px;
-  }
-  
-  h5 {
-    font-size: 18px;
-    font-weight: 400;
-  }
-  
-  h6 {
-    font-size: 16px;
-    font-weight: 300;
-  }
-  
-  img,
-  video,
-  figcaption {
-    max-width: 100%;
-  }
+html,
+body {
+  scroll-behavior: smooth;
+}
 
-  p {
-    font-size: 1em;
-    line-height: 120%;
-    margin: 10px 0;
-    word-break: break-word;
+body {
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: 400;
+  color: $text-color;
+  line-height: 28px;
+  transition: 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading;
+  margin-bottom: 0;
+}
+  
+h1 {
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 45px;
+}
+  
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: -0.8px;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+img,
+video,
+figcaption {
+  max-width: 100%;
+}
+
+p {
+  font-size: 1em;
+  line-height: 120%;
+  margin: 10px 0;
+  word-break: break-word;
 }
 
 a {
-    color: inherit;
+    color: $tertiary;
     text-decoration: none;
     display: inline-block;
 }
@@ -125,4 +125,47 @@ section {
 .lien{
   display: block;
 }
+
+.me-2 {
+  margin-block-end: 1em;
+}
 /*********** BUTTON ***********/
+
+.btn {
+  border: none;
+  padding: 0.6em;
+  border-radius: $border-radius;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+
+  &-primary {
+    background: $tertiary;
+    color: $primary;
+
+    &:hover {
+      background: $primary;
+      color: $tertiary;
+    }
+  }
+
+  &-secondary {
+    background: $tertiary;
+    color: $primary;
+
+    &:hover {
+      background: $secondary;
+      color: $primary;
+    }
+  }
+
+  &-danger {
+    background: $danger;
+    color: $white;
+
+    &:hover {
+      background: $danger-hover;
+      color: $white;
+    }
+  }
+}

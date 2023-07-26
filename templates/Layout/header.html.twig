@@ -2,11 +2,11 @@
 	<nav class="container navbar-content">
 		<div class="navbar-left">
 			<a href="/"><img src="{{ "/assets/images/logo.svg" }}" alt="logo"></a>
-			<ul class="navbar-nav">
-				<li class="navbar-item">
-					<a href="/" class="navbar-link">Acceuil</a>
-				</li>
-			</ul>
+			{# <ul class="navbar-nav">
+							<li class="navbar-item">
+								<a href="/" class="navbar-link">Acceuil</a>
+							</li>
+						</ul> #}
 		</div>
 		<div class="navbar-right">
 			<ul class="navbar-nav">
@@ -22,7 +22,7 @@
 			{% if app.user %}
 				{% if is_granted('ROLE_ADMIN') %}
 					<div class="dropdown btn navbar-btn btn-light">
-						<span>Admin</span>
+						<span class="me-2">Admin</span>
 						<div class="dropdown-content">
 							<a href="#" class="dropdown-link">Téléphones</a>
 							<a href="#" class="dropdown-link">Tablettes</a>
@@ -31,9 +31,9 @@
 						</div>
 					</div>
 				{% endif %}
-				<a href="{{ path('app.logout') }}">Se deconnecter</a>
+				<a class='btn btn-secondary' href="{{ path('app.logout') }}">Se deconnecter</a>
 			{% else %}
-				<a href="{{ path('app.login')}}">Se connecter
+				<a class='btn btn-secondary' href="{{ path('app.login')}}">Se connecter
 				</a>
 			{% endif %}
 		</div>
