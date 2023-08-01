@@ -18,13 +18,21 @@ body {
   transition: 0.5s;
 }
 
+.logo {
+  color: $text-color;
+  font-size: 3em;
+
+  &:hover {
+    color: $secondary;
+  }
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: $heading;
+  color: $text-color;
   margin-bottom: 0;
 }
   
@@ -77,7 +85,7 @@ p {
 }
 
 a {
-    color: $tertiary;
+    color: $text-color;
     text-decoration: none;
     display: inline-block;
 }
@@ -118,6 +126,22 @@ ol {
 .mb-4 {
     margin-bottom: 2em;
 }
+
+.mr-2 {
+  margin-right: 1em;
+}
+
+.mr-4 {
+  margin-right: 2em;
+}
+
+.ml-2 {
+  margin-left: 1em;
+}
+
+.ml-4 {
+  margin-left: 2em;
+}
 section {
     margin: 1em auto !important;
 }
@@ -140,12 +164,12 @@ section {
   transition: all 0.4s ease-in-out;
 
   &-primary {
-    background: $tertiary;
-    color: $primary;
+    background: $secondary;
+    color: $text-color;
 
     &:hover {
-      background: $primary;
-      color: $tertiary;
+      background: $hover-secondary;
+      color: $text-color;
     }
   }
 

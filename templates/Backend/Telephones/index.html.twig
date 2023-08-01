@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Adiministration des téléphones
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Administration des téléphones</h1>
+		<a href="{{ path('admin.telephones.create') }}" class="btn btn-primary mt-4 mb-4">Créer un nouvel article</a>
+	</section>
+{% endblock %}

@@ -49,11 +49,11 @@
     display: inline-block;
 
     &-link {
-        color: $primary;
+        color: $text-color;
         transition: all 0.4s ease-in-out;
 
         &:hover {
-            background: $secondary;
+            background: $hover-text-color;
         }
 
         &:hover:last-child {
@@ -69,7 +69,7 @@
         display: none;
         position: absolute;
         border-radius: 15px;
-        background: $tertiary;
+        background: $secondary;
         z-index: 999;
         top: 100%;
         left: 0;
@@ -83,7 +83,7 @@
     }
 
     &-content > *:not(:last-child) {
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid $hover-text-color;
     }
 
     &:hover {
@@ -94,13 +94,22 @@
 }
 
 span {
-    color: $primary;
+    color: $text-color;
     padding: 0.8em 2em;
-    background: $tertiary;
+    background: $secondary;
     border-radius: $border-radius;
     transition: all 0.4s ease-in-out;
 
     &:hover {
-        background: $secondary;
+        background: $hover-secondary;
+    }
+}
+
+.panier {
+    font-size: 2em;
+    color: $text-color;
+
+    &:hover {
+        color: $secondary;
     }
 }

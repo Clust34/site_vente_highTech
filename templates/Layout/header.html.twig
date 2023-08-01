@@ -1,12 +1,9 @@
 <header class="navbar">
 	<nav class="container navbar-content">
 		<div class="navbar-left">
-			<a href="/"><img src="{{ "/assets/images/logo.svg" }}" alt="logo"></a>
-			{# <ul class="navbar-nav">
-							<li class="navbar-item">
-								<a href="/" class="navbar-link">Acceuil</a>
-							</li>
-						</ul> #}
+			<a href="/" class=>
+				<i class="bi bi-pc-display logo"></i>
+			</a>
 		</div>
 		<div class="navbar-right">
 			<ul class="navbar-nav">
@@ -24,16 +21,19 @@
 					<div class="dropdown btn navbar-btn btn-light">
 						<span class="me-2">Admin</span>
 						<div class="dropdown-content">
-							<a href="#" class="dropdown-link">Téléphones</a>
+							<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
 							<a href="#" class="dropdown-link">Tablettes</a>
 							<a href="#" class="dropdown-link">Ordinateurs</a>
 							<a href="#" class="dropdown-link">Contact</a>
 						</div>
 					</div>
 				{% endif %}
-				<a class='btn btn-secondary' href="{{ path('app.logout') }}">Se deconnecter</a>
+				<a href="/">
+					<i class="bi bi-cart4 panier"></i>
+				</a>
+				<a class='btn btn-primary' href="{{ path('app.logout') }}">Se deconnecter</a>
 			{% else %}
-				<a class='btn btn-secondary' href="{{ path('app.login')}}">Se connecter
+				<a class='btn btn-primary' href="{{ path('app.login')}}">Se connecter
 				</a>
 			{% endif %}
 		</div>

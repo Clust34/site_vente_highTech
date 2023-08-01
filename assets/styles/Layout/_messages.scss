@@ -1,0 +1,23 @@
+.alert {
+    padding: 2em 1em;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    &-danger {
+        background: $danger;
+        color: $text-color;
+        border: rgb(244, 28, 28);
+    }
+
+    &-success {
+        background: $success;
+        color: $text-color;
+        border: rgb(30, 228, 30);
+    }
+
+    &-info {
+        background: #48455ade;
+        color: $white;
+        border: $heading;
+    }
+}

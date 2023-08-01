@@ -1,21 +1,22 @@
 // Color
-$primary: #430C05;
-$secondary: #D46F4D;
+$primary: #DCDCDC;
+$secondary: #6756BE;
+$hover-secondary: #6756bec5;
 $tertiary: #FFBF66;
 
-$text-color: #777777;
-$grey: #888;
-$grey-light: #bdbdbd;
-$grey-aside: #ececec;
+$text-color: #0b0b0b;
+$hover-text-color: #0b0b0bc1;
 $white: #f5f5f5;
-$dark-blue: #0b2864;
-$grey-banner: #fcfcfd;
 $heading: #48455a;
 $danger: rgb(156, 33, 33);
 $danger-hover: rgb(99, 13, 13);
+$success: rgb(34, 155, 34);
+$success-hover:rgba(34, 155, 34, 0.773);
 
-
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
-
-$font-primary: "Lato", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,700;1,300&display=swap');
+$font-primary: "Poppins", sans-serif;
 $border-radius: 15px;
+$box-shadow:
+    0 16px 38px -12px rgba(0, 0, 0, 0.56),
+    0 4px 25px 0px rgba(0, 0, 0, 0.12),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);

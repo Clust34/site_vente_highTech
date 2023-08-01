@@ -1,3 +1,11 @@
+// Import des Variables SCSS
 @import "./_variables.scss";
+
+
+// Import Bootstrap Icons
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+// Import des structures règles et messages flash
 @import "./_structure.scss";
 @import "./Layout/_header.scss";
+@import "./Layout/messages.scss";
