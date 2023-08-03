@@ -1,0 +1,21 @@
+<div class="block-card">
+	<div class="block-card-img">
+		<img src="/assets/images/logo.svg" alt="">
+	</div>
+	<div class="block-card-content">
+		<a href="">
+			<h1 class="text-center">{{ telephone.nom }}</h1>
+		</a>
+		{% if telephone.description|length < 150 %}
+			<p>{{ telephone.description }}</p>
+		{% else %}
+			<p>{{ telephone.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ telephone.marque }}</p>
+		<p>Prix :
+			{{ telephone.prix }}€</p>
+		<p>stock :
+			{{ telephone.quantity }}</p>
+	</div>
+</div>

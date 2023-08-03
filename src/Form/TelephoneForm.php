@@ -46,7 +46,7 @@ class TelephoneForm extends AbstractType
                 'sanitize_html' => true,
                 'attr' => [
                     'placeholder' => 'Description complète de l\'article',
-                    'row' => 5,
+                    'rows' => 5,
                 ]
             ])
             ->add('prix', NumberType::class, [

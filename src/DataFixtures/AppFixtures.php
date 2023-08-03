@@ -39,7 +39,8 @@ class AppFixtures extends Fixture
                 ->setMetaTitle("Téléphone Iphone $i")
                 ->setMetaDescription("Un téléphone qu'il est bien")
                 ->setDescription("Un téléphone qu'il est bien")
-                ->setEnable(1);
+                ->setEnable(1)
+                ->setMarque("Apple");
             $manager->persist($telephone);
         }
         $manager->flush();

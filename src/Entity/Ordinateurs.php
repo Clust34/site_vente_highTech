@@ -49,6 +49,9 @@ class Ordinateurs
     #[ORM\Column]
     private ?int $quantite = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $marque = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -170,6 +173,18 @@ class Ordinateurs
     public function setQuantite(int $quantite): static
     {
         $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): static
+    {
+        $this->marque = $marque;
 
         return $this;
     }

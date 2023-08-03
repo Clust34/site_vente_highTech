@@ -9,3 +9,9 @@
 @import "./_structure.scss";
 @import "./Layout/_header.scss";
 @import "./Layout/messages.scss";
+
+// Import des mixins
+@import "./mixins.scss";
+
+// Import card téléphone
+@import "./Telephones/TelephonesCard.scss";
