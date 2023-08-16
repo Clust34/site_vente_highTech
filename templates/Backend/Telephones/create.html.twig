@@ -6,10 +6,5 @@
 {% endblock %}
 
 {% block body %}
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	<div>
-		<button type="submit" class="btn btn-primary">Créer</button>
-	</div>
-	{{ form_end(form) }}
+	{% include 'Backend/Telephones/_form.html.twig' with { buttonLabel : 'Créer' } %}
 {% endblock %}

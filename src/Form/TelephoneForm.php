@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class TelephoneForm extends AbstractType
 {
@@ -63,9 +64,23 @@ class TelephoneForm extends AbstractType
                     'placeholder' => 50
                 ]
             ])
+            ->add('marque', TextType::class, [
+                'label' => 'Marque du téléphone :',
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Marque top'
+                ]
+            ])
             ->add('enable', CheckboxType::class, [
                 'label' => 'Actif',
                 'required' => false,
+            ])
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'download_uri' => false,
+                'image_uri' => true,
+                'asset_helper' => true,
+                'label' => 'Image',
             ]);
     }
 

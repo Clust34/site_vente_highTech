@@ -1,0 +1,30 @@
+<div class="block-card">
+	<div class="block-card-img">
+		<img src="/images/telephones/{{ telephone.imageName }}" alt="{{ telephone.nom }}" loading="lazy">
+	</div>
+	<div class="block-card-content">
+		<a href="">
+			<h1 class="text-center">{{ telephone.nom }}</h1>
+		</a>
+		{% if telephone.description|length < 150 %}
+			<p>{{ telephone.description }}</p>
+		{% else %}
+			<p>{{ telephone.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ telephone.marque }}</p>
+		<p>Prix :
+			{{ telephone.prix }}€</p>
+		<p>stock :
+			{{ telephone.quantity }}</p>
+		{% if app.request.get('_route') == 'admin.telephones.index' %}
+			<p class="badge fs-6 {{ telephone.enable ? 'bg-success' : 'bg-danger' }}">
+				{{ telephone.enable ? 'Actif' : 'Inactif' }}
+			</p>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-primary">Modifier</a>
+				{% include 'Backend/Telephones/_deleteForm.html.twig' %}
+			</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+
+{{ form_row(form.nom) }}
+
+<div>
+	<div>{{ form_row(form.metaTitle) }}</div>
+	<div>{{ form_row(form.metaDescription) }}</div>
+</div>
+
+{{ form_row(form.description) }}
+
+{{ form_row(form.marque) }}
+
+<div>
+	<div>{{ form_row(form.prix) }}</div>
+	<div>{{ form_row(form.quantity) }}</div>
+</div>
+
+{{ form_row(form.enable) }}
+
+{{ form_row(form.imageFile)}}
+
+<div>
+	<button type="submit">{{ buttonLabel|default('save') }}</button>
+</div>
+
+{{ form_end(form) }}

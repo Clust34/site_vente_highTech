@@ -11,7 +11,7 @@
 		<a href="{{ path('admin.telephones.create') }}" class="btn btn-primary mt-4 mb-4">Créer un nouvel article</a>
 		<div class="block-list mt-4">
 			{% for telephone in telephones %}
-				{% include 'Backend/Telephones/_telephonesCard.html.twig' %}
+				{% include 'Components/_telephonesCard.html.twig' %}
 			{% endfor %}
 		</div>
 	</section>

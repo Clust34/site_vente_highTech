@@ -5,11 +5,11 @@ namespace App\Controller\Backend;
 use App\Entity\Telephones;
 use App\Form\TelephoneForm;
 use App\Repository\TelephonesRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('admin/telephones', name: 'admin.telephones')]
 class TelephonesController extends AbstractController
@@ -45,5 +45,51 @@ class TelephonesController extends AbstractController
         return $this->render('Backend/Telephones/create.html.twig', [
             'form' => $form,
         ]);
+    }
+
+    #[Route('/{id}/edit', name: '.edit', methods: ['GET', 'POST'])]
+    public function edit(?Telephones $telephone, Request $request): Response
+    {
+        if (!$telephone instanceof Telephones) {
+            $this->addFlash('error', 'Téléphones non trouvé');
+
+            return $this->redirectToRoute('admin.telephones.index');
+        }
+        $form = $this->createForm(TelephoneForm::class, $telephone);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->repoTel->save($telephone);
+            $this->addFlash('success', 'Article téléphones créé avec succès');
+
+            return $this->redirectToRoute('admin.telephones.index');
+        }
+
+        return $this->render('Backend/Telephones/edit.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/delete', name: '.delete', methods: ['POST'])]
+    public function delete(Request $request): RedirectResponse
+    {
+        $telephone = $this->repoTel->find($request->get('id', 0));
+
+        if (!$telephone instanceof Telephones) {
+            $this->addFlash('error', 'Téléphones non trouvé');
+
+            return $this->redirectToRoute('admin.telephones.index');
+        }
+
+        if ($this->isCsrfTokenValid('delete' . $telephone->getId(), $request->get('token'))) {
+            $this->repoTel->remove($telephone);
+            $this->addFlash('success', 'Téléphone supprimé avec succès');
+
+            return $this->redirectToRoute('admin.telephones.index');
+        }
+
+        $this->addFlash('error', 'Token invalide');
+
+        return $this->redirectToRoute('admin.telephones.index');
     }
 }

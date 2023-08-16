@@ -1,0 +1,15 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+       telephones_image:
+           uri_prefix: /images/telephones
+           upload_destination: '%kernel.project_dir%/public/images/telephones'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true
+
+    metadata:
+        type: attribute
+    
