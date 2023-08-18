@@ -7,7 +7,7 @@
 
 {% block body %}
 	<h1 class="text-center mb-4 mt-4">Page d'accueil</h1>
-	<div>
+	<div class="block-list mt-4">
 		{% for telephone in telephones %}
 			{% include 'Components/_telephonesCard.html.twig' %}
 		{% endfor %}

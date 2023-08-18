@@ -1,19 +1,19 @@
 {% for flash in app.flashes('error') %}
-	<div class="alert alert-danger mt-4 ml-4 mr-4 text-center">
+	<div class="alert alert-danger mb-4 mt-4 ml-4 mr-4 text-center">
 		<i class="bi bi-x-octagon-fill"></i>
 		{{ flash }}
 	</div>
 {% endfor %}
 
 {% for flash in app.flashes('success') %}
-	<div class="alert alert-success mt-4 ml-4 mr-4 text-center">
+	<div class="alert alert-success mb-4 mt-4 ml-4 mr-4 text-center">
 		<i class="bi bi-patch-check-fill"></i>
 		{{ flash }}
 	</div>
 {% endfor %}
 
 {% for flash in app.flashes('info') %}
-	<div class="alert alert-info mt-4 ml-4 mr-4 text-center">
+	<div class="alert alert-info mb-4 mt-4 ml-4 mr-4 text-center">
 		<i class="bi bi-info-circle-fill"></i>
 		{{ flash }}
 	</div>

@@ -33,6 +33,7 @@
 				</a>
 				<a class='btn btn-primary' href="{{ path('app.logout') }}">Se deconnecter</a>
 			{% else %}
+				<a href="{{ path('app.register') }}" class="btn btn-primary">S'inscrire</a>
 				<a class='btn btn-primary' href="{{ path('app.login')}}">Se connecter
 				</a>
 			{% endif %}
