@@ -22,7 +22,7 @@
 				{{ telephone.enable ? 'Actif' : 'Inactif' }}
 			</p>
 			<div class="block-card-button justify-content-between">
-				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-primary">Modifier</a>
+				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Telephones/_deleteForm.html.twig' %}
 			</div>
 		{% endif %}

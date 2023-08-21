@@ -1,4 +1,7 @@
-
+.container-login {
+    width: 60%;
+    margin: auto;
+}
 .block-title {
     @include flexbox(space-between, center, wrap, 1em);
 
@@ -43,6 +46,11 @@
                 width: 45%;
             }
         }
+
+        &-login {
+            @include flexbox(center, center, wrap, 3em);
+            margin: 2em 1em;
+        }
     }
 
     &-email {
@@ -66,4 +74,20 @@ input {
 
 button {
     font-size: 1.5em;
+}
+
+.select-roles > div {
+    @include flexbox(center, center, wrap, 2em);
+}
+
+#user_roles {
+    text-align: center;
+    font-size: 1em;
+    margin: 2em 0;
+    padding: 0.5em;
+    border-radius: $border-radius;
+}
+
+option {
+    margin: 4px;
 }
