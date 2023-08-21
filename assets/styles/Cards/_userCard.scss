@@ -1,0 +1,14 @@
+.block-profile {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    background: $primary;
+
+    &-row {
+        text-align: center;
+        margin: 1em 0;
+    }
+
+    h2 {
+        margin: 1em 2em;
+    }
+}

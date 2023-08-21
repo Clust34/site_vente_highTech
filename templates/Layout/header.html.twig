@@ -31,7 +31,9 @@
 				<a href="/">
 					<i class="bi bi-cart4 panier"></i>
 				</a>
+				<a class="btn btn-primary" href="{{ path('compte') }}">Mon Compte</a>
 				<a class='btn btn-primary' href="{{ path('app.logout') }}">Se deconnecter</a>
+
 			{% else %}
 				<a href="{{ path('app.register') }}" class="btn btn-primary">S'inscrire</a>
 				<a class='btn btn-primary' href="{{ path('app.login')}}">Se connecter

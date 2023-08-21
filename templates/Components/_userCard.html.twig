@@ -1,0 +1,22 @@
+<div class="block-profile pb-4">
+	<h2>Coordonnées de
+		{{ user.nom }}
+		{{ user.prenom }}
+	</h2>
+
+	<div class="block-profile-row mt-4">
+		<p>Votre email :
+			{{ user.email }}
+		</p>
+		<p>Votre adresse :
+			{{ user.adresse }}</p>
+		<p>Votre code postale :
+			{{ user.zipCode }}
+		</p>
+		<p>Votre ville :
+			{{ user.ville }}
+		</p>
+	</div>
+
+	<a href="{{ path('front.user.edit') }}" class="btn btn-primary mt-4 mb-2 ml-4">Modifier vos informations</a>
+</div>

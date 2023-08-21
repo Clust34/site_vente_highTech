@@ -13,8 +13,9 @@
 // Import des mixins
 @import "./mixins.scss";
 
-// Import card téléphone
-@import "./Telephones/TelephonesCard.scss";
+// Import cards
+@import "./Cards/TelephonesCard.scss";
+@import "./Cards/userCard.scss";
 
 // Import Form
 @import "./Form/form.scss";

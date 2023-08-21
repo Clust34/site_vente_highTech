@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Votre profil
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mb-4 mt-4">Votre fiche profile</h1>
+		{% include('Components/_userCard.html.twig') %}
+	</section>
+{% endblock %}
