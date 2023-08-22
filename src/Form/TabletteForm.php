@@ -2,17 +2,18 @@
 
 namespace App\Form;
 
-use App\Entity\Telephones;
+use App\Entity\Tablettes;
+use App\Form\TabletteImageForm;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class TelephoneForm extends AbstractType
+class TabletteForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -22,7 +23,7 @@ class TelephoneForm extends AbstractType
                 'required' => true,
                 'sanitize_html' => true,
                 'attr' => [
-                    'placeholder' => 'Iphone 75',
+                    'placeholder' => 'Ipad 75',
                 ]
             ])
             ->add('metaTitle', TextType::class, [
@@ -30,7 +31,7 @@ class TelephoneForm extends AbstractType
                 'required' => true,
                 'sanitize_html' => true,
                 'attr' => [
-                    'placeholder' => 'Iphone sur mon site...',
+                    'placeholder' => 'Ipad sur mon site...',
                 ]
             ])
             ->add('metaDescription', TextType::class, [
@@ -57,7 +58,7 @@ class TelephoneForm extends AbstractType
                     'placeholder' => 250,
                 ]
             ])
-            ->add('quantity', NumberType::class, [
+            ->add('quantite', NumberType::class, [
                 'label' => 'Quantité d\'article disponible :',
                 'required' => true,
                 'attr' => [
@@ -71,12 +72,12 @@ class TelephoneForm extends AbstractType
                     'placeholder' => 'Marque top'
                 ]
             ])
-            ->add('enable', CheckboxType::class, [
+            ->add('actif', CheckboxType::class, [
                 'label' => 'Actif',
                 'required' => false,
             ])
             ->add('images', CollectionType::class, [
-                'entry_type' => TelephoneImageType::class,
+                'entry_type' => TabletteImageForm::class,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'delete_empty' => true,
@@ -87,7 +88,7 @@ class TelephoneForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Telephones::class,
+            'data_class' => Tablettes::class,
             'translation_domain' => 'form'
         ]);
     }

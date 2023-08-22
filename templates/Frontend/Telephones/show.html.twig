@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ telephone.nom }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">{{ telephone.nom }}</h1>
+{% endblock %}

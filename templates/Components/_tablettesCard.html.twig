@@ -1,0 +1,38 @@
+<div class="block-card">
+	<div class="block-card-content row">
+		<a href="">
+			<h1 class="text-center">{{ tablette.nom }}</h1>
+		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in tablette.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ tablette.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
+		{% if tablette.description|length < 150 %}
+			<p>{{ tablette.description }}</p>
+		{% else %}
+			<p>{{ tablette.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ tablette.marque }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ tablette.prix }}
+				€</p>
+			<p>stock :
+				{{ tablette.quantite }}</p>
+		</div>
+
+		{% if app.request.get('_route') == 'admin.tablettes.index' %}
+			<p class="badge fs-6 {{ tablette.actif ? 'bg-success' : 'bg-danger' }}">
+				{{ tablette.actif ? 'Actif' : 'Inactif' }}
+			</p>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.tablettes.edit', {id: tablette.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Tablettes/_deleteForm.html.twig' %}
+			</div>
+		{% endif %}
+	</div>
+</div>

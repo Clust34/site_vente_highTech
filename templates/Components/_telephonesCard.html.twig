@@ -1,6 +1,6 @@
-<div class="block-card">
+<div class="block-card" id="telephone-{{ telephone.id }}">
 	<div class="block-card-content row">
-		<a href="">
+		<a href="{{ path('app.telephones.show', {slug: article.slug}) }}">
 			<h1 class="text-center">{{ telephone.nom }}</h1>
 		</a>
 	</div>

@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\TablettesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
 
 #[ORM\Entity(repositoryClass: TablettesRepository::class)]
 class Tablettes
@@ -51,6 +52,14 @@ class Tablettes
 
     #[ORM\Column(length: 255)]
     private ?string $marque = null;
+
+    #[ORM\OneToMany(mappedBy: 'tablette', targetEntity: TabletteImage::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -185,6 +194,36 @@ class Tablettes
     public function setMarque(string $marque): static
     {
         $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TabletteImage>
+     */
+    public function getimages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(TabletteImage $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setTablettes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(TabletteImage $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getTablettes() === $this) {
+                $image->setTablettes(null);
+            }
+        }
 
         return $this;
     }

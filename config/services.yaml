@@ -26,3 +26,7 @@ services:
     app.directory_namer.telephone:
         class: App\Service\TelephoneDirectoryNamer
         public: true
+
+    app.directory_namer.tablette:
+        class: App\Service\TabletteDirectoryNamer
+        public: true

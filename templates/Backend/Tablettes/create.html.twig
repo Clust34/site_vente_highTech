@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'un article Tablette
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Création d'un article tablette</h1>
+	{% include 'Backend/Tablettes/_form.html.twig' with { buttonLabel : 'Créer' } %}
+{% endblock %}

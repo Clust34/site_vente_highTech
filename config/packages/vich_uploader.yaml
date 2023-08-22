@@ -7,9 +7,16 @@ knp_gaufrette:
             local:
                 directory: '%kernel.project_dir%/public/images/telephones'
 
+        tablette_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/images/tablettes'
+
     filesystems:
         telephone_fs:
             adapter: telephone_adapter
+            
+        tablette_fs:
+            adapter: tablette_adapter
 
 vich_uploader:
     db_driver: orm
@@ -19,14 +26,22 @@ vich_uploader:
         type: attribute
 
     mappings:
-       telephone_image:
+        telephone_image:
            uri_prefix: /images/telephones
            upload_destination: telephone_fs
            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
            directory_namer: app.directory_namer.telephone
            inject_on_load: false
            delete_on_update: true
-           delete_on_remove: true
+           delete_on_remove: true   
 
+        tablette_image:
+           uri_prefix: /images/tablettes
+           upload_destination: tablette_fs
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           directory_namer: app.directory_namer.tablette
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true
    
     
