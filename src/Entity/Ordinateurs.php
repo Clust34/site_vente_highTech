@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\OrdinateursRepository;
 use Doctrine\DBAL\Types\Types;
+use App\Entity\OrdinateurImage;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
+use App\Repository\OrdinateursRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OrdinateursRepository::class)]
 class Ordinateurs
@@ -17,6 +20,13 @@ class Ordinateurs
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Le nom doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le nom ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -24,9 +34,23 @@ class Ordinateurs
     private ?string $slug = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: 'Le meta itle doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le meta title ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $metaTitle = null;
 
     #[ORM\Column(length: 200)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 200,
+        minMessage: 'La meta description doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La meta description ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $metaDescription = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -44,13 +68,29 @@ class Ordinateurs
     private ?bool $actif = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?float $prix = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?int $quantite = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'La marque doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La marque ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $marque = null;
+
+    #[ORM\OneToMany(mappedBy: 'ordinateur', targetEntity: OrdinateurImage::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -185,6 +225,36 @@ class Ordinateurs
     public function setMarque(string $marque): static
     {
         $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrdinateurImage>
+     */
+    public function getimages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addimage(OrdinateurImage $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setOrdinateurs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeimage(OrdinateurImage $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getOrdinateurs() === $this) {
+                $image->setOrdinateurs(null);
+            }
+        }
 
         return $this;
     }

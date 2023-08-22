@@ -6,6 +6,8 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -16,6 +18,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 4,
+        max: 180,
+        minMessage: 'Le mail doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le mail ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -25,21 +34,51 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Le nom doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le nom ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Le prénom doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le prénom ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'La rue doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La rue ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $adresse = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?int $zipCode = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'La ville doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La ville ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $ville = null;
 
     public function getId(): ?int

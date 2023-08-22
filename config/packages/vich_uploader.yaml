@@ -11,12 +11,20 @@ knp_gaufrette:
             local:
                 directory: '%kernel.project_dir%/public/images/tablettes'
 
+        ordi_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/images/ordis'
+
     filesystems:
         telephone_fs:
             adapter: telephone_adapter
-            
+
         tablette_fs:
             adapter: tablette_adapter
+
+        ordi_fs:
+            adapter: ordi_adapter
+
 
 vich_uploader:
     db_driver: orm
@@ -44,4 +52,11 @@ vich_uploader:
            delete_on_update: true
            delete_on_remove: true
    
-    
+        ordi_image:
+           uri_prefix: /images/ordis
+           upload_destination: ordi_fs
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           directory_namer: app.directory_namer.ordi
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true

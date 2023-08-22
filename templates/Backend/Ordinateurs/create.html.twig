@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'un article Ordinateur
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Création d'un article ordinateur</h1>
+	{% include 'Backend/Ordinateurs/_form.html.twig' with { buttonLabel : 'Créer' } %}
+{% endblock %}

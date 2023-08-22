@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\TablettesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\TablettesRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TablettesRepository::class)]
 class Tablettes
@@ -18,6 +20,13 @@ class Tablettes
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Le nom doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le nom ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -25,9 +34,23 @@ class Tablettes
     private ?string $slug = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: 'Le meta title doit faire plus de {{ limit }} caractères',
+        maxMessage: 'Le meta title ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $metaTitle = null;
 
     #[ORM\Column(length: 200)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 200,
+        minMessage: 'La meta description doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La meta description ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $metaDescription = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -45,12 +68,21 @@ class Tablettes
     private ?bool $actif = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?float $prix = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?int $quantite = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'La marque doit faire plus de {{ limit }} caractères',
+        maxMessage: 'La marque ne peut pas faire plus de {{ limit }} caractères'
+    )]
     private ?string $marque = null;
 
     #[ORM\OneToMany(mappedBy: 'tablette', targetEntity: TabletteImage::class, orphanRemoval: true, cascade: ['persist'])]

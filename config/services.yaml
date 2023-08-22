@@ -30,3 +30,7 @@ services:
     app.directory_namer.tablette:
         class: App\Service\TabletteDirectoryNamer
         public: true
+
+    app.directory_namer.ordi:
+        class: App\Service\OrdiDirectoryNamer
+        public: true

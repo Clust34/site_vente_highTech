@@ -1,0 +1,38 @@
+<div class="block-card">
+	<div class="block-card-content row">
+		<a href="">
+			<h1 class="text-center">{{ ordinateur.nom }}</h1>
+		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in ordinateur.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ ordinateur.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
+		{% if ordinateur.description|length < 150 %}
+			<p>{{ ordinateur.description }}</p>
+		{% else %}
+			<p>{{ ordinateur.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ ordinateur.marque }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ ordinateur.prix }}
+				€</p>
+			<p>stock :
+				{{ ordinateur.quantite }}</p>
+		</div>
+
+		{% if app.request.get('_route') == 'admin.tablettes.index' %}
+			<p class="badge fs-6 {{ ordinateur.actif ? 'bg-success' : 'bg-danger' }}">
+				{{ ordinateur.actif ? 'Actif' : 'Inactif' }}
+			</p>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.ordinateurs.edit', {id: ordinateur.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Ordinateurs/_deleteForm.html.twig' %}
+			</div>
+		{% endif %}
+	</div>
+</div>
