@@ -66,6 +66,17 @@
     }
 }
 
+.vich-image > a > img {
+    width: 100%;
+    margin-top: 1em;
+}
+.row {
+    @include flexbox(flex-start, center, wrap, 1em);
+
+    &-4 {
+        width: 20%;
+    }
+}
 input {
     border: 1px solid $text-color;
     border-radius: $border-radius;

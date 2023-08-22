@@ -3,15 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\TelephonesRepository;
+use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
 #[ORM\Entity(repositoryClass: TelephonesRepository::class)]
-#[Vich\Uploadable]
 class Telephones
 {
     #[ORM\Id]
@@ -55,14 +54,13 @@ class Telephones
     #[ORM\Column(length: 255)]
     private ?string $marque = null;
 
-    #[Vich\UploadableField(mapping: 'telephones_image', fileNameProperty: 'imageName', size: 'imageSize')]
-    private ?File $imageFile = null;
+    #[ORM\OneToMany(mappedBy: 'telephones', targetEntity: TelephoneImage::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $images;
 
-    #[ORM\Column(length: 255)]
-    private ?string $imageName = null;
-
-    #[ORM\Column]
-    private ?int $imageSize = null;
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -201,32 +199,33 @@ class Telephones
         return $this;
     }
 
-    public function setImageFile(?File $imageFile = null): void
+    /**
+     * @return Collection<int, TelephoneImage>
+     */
+    public function getImages(): Collection
     {
-        $this->imageFile = $imageFile;
-        if (null !== $imageFile) {
-            // Il faut biensur que la propriété updatedAt soit crée sur l'Entity.
-            $this->updatedAt = new \DateTimeImmutable();
+        return $this->images;
+    }
+
+    public function addImage(TelephoneImage $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setTelephones($this);
         }
+
+        return $this;
     }
-    public function getImageFile(): ?File
+
+    public function removeImage(TelephoneImage $image): static
     {
-        return $this->imageFile;
-    }
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-    public function setImageSize(?int $imageSize): void
-    {
-        $this->imageSize = $imageSize;
-    }
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getUpdatedAt() === $this) {
+                $image->setUpdatedAt(null);
+            }
+        }
+
+        return $this;
     }
 }

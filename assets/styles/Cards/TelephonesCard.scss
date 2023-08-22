@@ -42,10 +42,16 @@
                 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
             img {
+                display: inherit;
                 aspect-ratio: 3/2;
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
+                transition: all ease-in-out .4s;
+            }
+
+            img:hover {
+                transform: scale(1.1);
             }
         }
 
@@ -53,4 +59,8 @@
             @include flexbox(space-between);
         }
     }
+}
+
+.block-card > .row {
+    justify-content: center;
 }

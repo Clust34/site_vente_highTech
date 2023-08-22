@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Telephones;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -75,12 +76,12 @@ class TelephoneForm extends AbstractType
                 'label' => 'Actif',
                 'required' => false,
             ])
-            ->add('imageFile', VichImageType::class, [
-                'required' => false,
-                'download_uri' => false,
-                'image_uri' => true,
-                'asset_helper' => true,
-                'label' => 'Image',
+            ->add('images', CollectionType::class, [
+                'entry_type' => TelephoneImageType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+                'by_reference' => false,
             ]);
     }
 

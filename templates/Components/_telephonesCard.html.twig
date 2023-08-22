@@ -1,11 +1,15 @@
 <div class="block-card">
-	<div class="block-card-img">
-		<img src="/images/telephones/{{ telephone.imageName }}" alt="{{ telephone.nom }}" loading="lazy">
-	</div>
-	<div class="block-card-content">
+	<div class="block-card-content row">
 		<a href="">
 			<h1 class="text-center">{{ telephone.nom }}</h1>
 		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in telephone.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ telephone.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
 		{% if telephone.description|length < 150 %}
 			<p>{{ telephone.description }}</p>
 		{% else %}
@@ -13,10 +17,14 @@
 		{% endif %}
 		<p>Marque :
 			{{ telephone.marque }}</p>
-		<p>Prix :
-			{{ telephone.prix }}€</p>
-		<p>stock :
-			{{ telephone.quantity }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ telephone.prix }}
+				€</p>
+			<p>stock :
+				{{ telephone.quantity }}</p>
+		</div>
+
 		{% if app.request.get('_route') == 'admin.telephones.index' %}
 			<p class="badge fs-6 {{ telephone.enable ? 'bg-success' : 'bg-danger' }}">
 				{{ telephone.enable ? 'Actif' : 'Inactif' }}
