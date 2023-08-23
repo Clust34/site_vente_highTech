@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\OrdinateursRepository;
+use App\Repository\TablettesRepository;
 use App\Repository\TelephonesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +15,17 @@ class MainController extends AbstractController
         private TelephonesRepository $telephRepo
     ) {
     }
-    #[Route('', 'app.homepage', methods: ['GET'])]
-    public function index(): Response
+    #[Route('', name: 'app.homepage', methods: ['GET'])]
+    public function index(TelephonesRepository $telephRepo, OrdinateursRepository $repoOrdi, TablettesRepository $repoTab): Response
     {
+        $telephones = $telephRepo->findAll();
+        $tablette = $repoTab->findAll();
+        $ordinateur = $repoOrdi->findAll();
+
         return $this->render('Home/home.html.twig', [
-            'telephones' => $this->telephRepo->findAll()
+            'telephones' => $telephones,
+            'ordinateurs' => $ordinateur,
+            'tablettes' => $tablette
         ]);
     }
 }

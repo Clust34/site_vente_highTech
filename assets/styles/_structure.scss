@@ -220,3 +220,15 @@ section {
     }
   }
 }
+
+.link {
+  padding: .2em .4em;
+  border: 1px solid $text-color;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: ease-in-out .4s;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}

@@ -17,3 +17,7 @@ button {
 .btn-row {
     @include flexbox(center, center, wrap, 2em);
 }
+
+.fond-prim {
+    background: $primary;
+}

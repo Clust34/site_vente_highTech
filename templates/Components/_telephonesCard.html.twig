@@ -1,6 +1,6 @@
 <div class="block-card" id="telephone-{{ telephone.id }}">
 	<div class="block-card-content row">
-		<a href="{{ path('app.telephones.show', {slug: article.slug}) }}">
+		<a href="{{ path('telephone.show', {slug: telephone.slug}) }}">
 			<h1 class="text-center">{{ telephone.nom }}</h1>
 		</a>
 	</div>
@@ -33,6 +33,8 @@
 				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Telephones/_deleteForm.html.twig' %}
 			</div>
+		{% else %}
+			<a href="{{ path('telephone.show', {slug: telephone.slug}) }}" class="btn btn-primary">En savoir plus</a>
 		{% endif %}
 	</div>
 </div>

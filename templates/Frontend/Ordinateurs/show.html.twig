@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ ordinateur.nom }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">{{ ordinateur.nom }}</h1>
+{% endblock %}

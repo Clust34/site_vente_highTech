@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Fiche produit
+	{{ tablette.nom }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	{{ tablette.nom }}
+{% endblock %}

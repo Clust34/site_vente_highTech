@@ -1,0 +1,23 @@
+.block-detail {
+    @include flexbox(space-between, start, wrap, 1em);
+
+    width: 80%;
+    margin: auto;
+
+    &-slider {
+        width: 40%;
+
+    }
+
+    &-content {
+        width: 40%;
+    }
+    
+    .block-button {
+        @include flexbox(space-between, center, wrap, 1em);
+
+        & > a {
+            width: 40%;
+        }
+    }
+}

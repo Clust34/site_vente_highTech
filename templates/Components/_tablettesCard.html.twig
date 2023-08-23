@@ -1,6 +1,6 @@
-<div class="block-card">
+<div class="block-card" id="tablette-{{ tablette.id }}">
 	<div class="block-card-content row">
-		<a href="">
+		<a href="{{ path('tablette.show', {slug: tablette.slug}) }}">
 			<h1 class="text-center">{{ tablette.nom }}</h1>
 		</a>
 	</div>
@@ -33,6 +33,8 @@
 				<a href="{{ path('admin.tablettes.edit', {id: tablette.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Tablettes/_deleteForm.html.twig' %}
 			</div>
+		{% else %}
+			<a href="{{ path('tablette.show', {slug: tablette.slug}) }}" class="btn btn-primary">En savoir plus</a>
 		{% endif %}
 	</div>
 </div>

@@ -6,10 +6,34 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center mb-4 mt-4">Page d'accueil</h1>
-	<div class="block-list mt-4">
-		{% for telephone in telephones %}
-			{% include 'Components/_telephonesCard.html.twig' %}
-		{% endfor %}
-	</div>
+	<section class="container mt-4">
+		<h1 class="text-center mb-4 mt-4">Page d'accueil</h1>
+		<h2 class="mb-4 mt-4">Quelques Téléphones</h2>
+		<div>
+			<a href="" class="btn btn-primary">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for telephone in telephones %}
+				{% include 'Components/_telephonesCard.html.twig' %}
+			{% endfor %}
+		</div>
+		<h2 class="mb-4 mt-4">Quelques Tablettes</h2>
+		<div>
+			<a href="" class="btn btn-primary">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for tablette in tablettes %}
+				{% include 'Components/_tablettesCard.html.twig' %}
+			{% endfor %}
+		</div>
+		<h2 class="mb-4 mt-4">Quelques Ordinateurs</h2>
+		<div>
+			<a href="" class="btn btn-primary">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for ordinateur in ordinateurs %}
+				{% include 'Components/_ordinateursCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}

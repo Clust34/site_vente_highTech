@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ telephone.nom }}
+	Fiche produit
+	{{ ordinateur.nom }}
 	{{ parent() }}
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center">{{ telephone.nom }}</h1>
+	{{ ordinateur.nom }}
 {% endblock %}

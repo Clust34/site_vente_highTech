@@ -10,3 +10,4 @@ import './styles/app.scss';
 
 // Import Javascript
 import './js/addCollectionInput';
+import './js/swiperDetail';

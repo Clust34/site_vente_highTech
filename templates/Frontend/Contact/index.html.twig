@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Contact
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mb-4 mt-4">Zone de contact</h1>
+		{{ form_start(form, {'attr': {'class': 'mt-4 form'}}) }}
+		<div class="form-row">
+			<div class="form-row-midle">{{ form_row(form.nom) }}</div>
+			<div class="form-row-midle">{{ form_row(form.prenom) }}</div>
+		</div>
+		<div class="form-row">
+			<div class="form-row-midle">{{ form_row(form.email) }}</div>
+			<div class="form-row-midle">{{ form_row(form.telephone) }}</div>
+		</div>
+		<div class="form-email">{{ form_row(form.message) }}</div>
+		<div class="text-center mb-4">
+			<button class="btn btn-primary" type="submit">Envoyer</button>
+		</div>
+		{{ form_end(form) }}
+		<div class="block-carte mt-4 mb-4 pl-4 pr-4 pb-4 pt-4">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d44182.19393160592!2d5.205711744840329!3d46.20275350560001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1692794428697!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<div class="block-carte-content mt-4">
+				<div>
+					<p>
+						<strong>Notre magasin :</strong>
+					</p>
+					<p>1 rue de la gare
+						<br>
+						01000 Bourg en Bresse
+						<br>
+						0606060606</p>
+				</div>
+				<div>
+					<p>
+						<strong>Nos Horraires :</strong>
+					</p>
+					<p>Du lundi au vendredi
+						<br>
+						De 9h à 18h non-stop</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+{% endblock %}

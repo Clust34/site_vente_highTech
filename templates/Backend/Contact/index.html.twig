@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Contact Réponse
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4 mb-4">Liste des messages</h1>
+		<table class="tableau fond-prim mt-4 pt-4 pb-4">
+			<thead class="mt-4">
+				<tr>
+					<th>Date</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>email</th>
+					<th>Téléphone</th>
+					<th>Message</th>
+					<th>Voir</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for message in messages %}
+					<tr>
+						<td>{{ message.createdAt| format_datetime("full", "none") }}</td>
+						<td>{{ message.nom }}</td>
+						<td>{{ message.prenom }}</td>
+						<td>{{ message.email }}</td>
+						<td>+33{{ message.telephone }}</td>
+						<td>{{ message.message|slice(0, 30)|sanitize_html|striptags }}...</td>
+						<td>
+							<a href="{{ path('.admin.contact.voir', {id: message.id}) }}" class="link">Voir</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</tbody>
+	</table>
+</section>{% endblock %}
