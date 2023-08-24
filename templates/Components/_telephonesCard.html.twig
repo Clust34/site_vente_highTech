@@ -1,7 +1,7 @@
 <div class="block-card" id="telephone-{{ telephone.id }}">
 	<div class="block-card-content row">
 		<a href="{{ path('telephone.show', {slug: telephone.slug}) }}">
-			<h1 class="text-center">{{ telephone.nom }}</h1>
+			<h1 class="text-center">{{ telephone.nom|sanitize_html|striptags }}</h1>
 		</a>
 	</div>
 	<div class="block-card-img">
@@ -11,12 +11,12 @@
 	</div>
 	<div class="block-card-content">
 		{% if telephone.description|length < 150 %}
-			<p>{{ telephone.description }}</p>
+			<p>{{ telephone.description|sanitize_html|striptags }}</p>
 		{% else %}
 			<p>{{ telephone.description|slice(0, 150)|sanitize_html|striptags }}...</p>
 		{% endif %}
 		<p>Marque :
-			{{ telephone.marque }}</p>
+			{{ telephone.marque|sanitize_html|striptags }}</p>
 		<div class="row">
 			<p>Prix :
 				{{ telephone.prix }}

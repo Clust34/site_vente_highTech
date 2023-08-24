@@ -1,7 +1,7 @@
 <div class="block-card" id="ordinateur-{{ ordinateur.id }}">
 	<div class="block-card-content row">
 		<a href="{{ path('ordinateur.show', {slug: ordinateur.slug}) }}">
-			<h1 class="text-center">{{ ordinateur.nom }}</h1>
+			<h1 class="text-center">{{ ordinateur.nom|sanitize_html|striptags }}</h1>
 		</a>
 	</div>
 	<div class="block-card-img">
@@ -11,12 +11,12 @@
 	</div>
 	<div class="block-card-content">
 		{% if ordinateur.description|length < 150 %}
-			<p>{{ ordinateur.description }}</p>
+			<p>{{ ordinateur.description|sanitize_html|striptags }}</p>
 		{% else %}
 			<p>{{ ordinateur.description|slice(0, 150)|sanitize_html|striptags }}...</p>
 		{% endif %}
 		<p>Marque :
-			{{ ordinateur.marque }}</p>
+			{{ ordinateur.marque|sanitize_html|striptags }}</p>
 		<div class="row">
 			<p>Prix :
 				{{ ordinateur.prix }}

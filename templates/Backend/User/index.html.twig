@@ -24,8 +24,8 @@
 				{% for user in users %}
 					<tr>
 						<td>{{ user.id }}</td>
-						<td>{{ user.nom }}</td>
-						<td>{{ user.prenom }}</td>
+						<td>{{ user.nom|sanitize_html|striptags }}</td>
+						<td>{{ user.prenom|sanitize_html|striptags }}</td>
 						<td>{{ user.email }}</td>
 						<td>{{ user.roles|json_encode }}</td>
 						<td>

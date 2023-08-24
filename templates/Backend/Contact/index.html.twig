@@ -24,8 +24,8 @@
 				{% for message in messages %}
 					<tr>
 						<td>{{ message.createdAt| format_datetime("full", "none") }}</td>
-						<td>{{ message.nom }}</td>
-						<td>{{ message.prenom }}</td>
+						<td>{{ message.nom|sanitize_html|striptags }}</td>
+						<td>{{ message.prenom|sanitize_html|striptags }}</td>
 						<td>{{ message.email }}</td>
 						<td>+33{{ message.telephone }}</td>
 						<td>{{ message.message|slice(0, 30)|sanitize_html|striptags }}...</td>

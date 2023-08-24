@@ -13,15 +13,15 @@
 				{% include 'Frontend/Telephones/_sliderDetail.html.twig' %}
 			</div>
 			<div class="block-detail-content mt-4">
-				<h1 class="text-center mb-4">{{ telephone.nom }}</h1>
+				<h1 class="text-center mb-4">{{ telephone.nom|sanitize_html|striptags }}</h1>
 				<p class="mt-4 mb-4">Prix :
 					{{ telephone.prix }}
 					€</p>
 				<p class="mt-4 mb-4">Marque :
-					{{ telephone.marque }}</p>
+					{{ telephone.marque|sanitize_html|striptags }}</p>
 				<p class="mt-4 mb-4">Description :
 					<br>
-					{{ telephone.description }}</p>
+					{{ telephone.description|sanitize_html|striptags }}</p>
 				<div class="block-button">
 					<a href="{{ path('app.contact') }}" class="link">Une question ? Contacter nous.</a>
 					<a href="#" class="btn btn-secondary">Ajouter au panier</a>

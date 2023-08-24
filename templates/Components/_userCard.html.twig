@@ -1,7 +1,7 @@
 <div class="block-profile pb-4">
 	<h2>Coordonnées de
-		{{ user.nom }}
-		{{ user.prenom }}
+		{{ user.nom|sanitize_html|striptags }}
+		{{ user.prenom|sanitize_html|striptags }}
 	</h2>
 
 	<div class="block-profile-row mt-4">
@@ -9,12 +9,12 @@
 			{{ user.email }}
 		</p>
 		<p>Votre adresse :
-			{{ user.adresse }}</p>
+			{{ user.adresse|sanitize_html|striptags }}</p>
 		<p>Votre code postale :
 			{{ user.zipCode }}
 		</p>
 		<p>Votre ville :
-			{{ user.ville }}
+			{{ user.ville|sanitize_html|striptags }}
 		</p>
 	</div>
 

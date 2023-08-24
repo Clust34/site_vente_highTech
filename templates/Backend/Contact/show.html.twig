@@ -12,14 +12,14 @@
 			{{ message.nom }}</h1>
 		<div class="block-mess pt-4 pl-4 pr-4 pb-4">
 			<p class="mb-4">Envoyer par :
-				{{ message.nom }}
-				{{ message.prenom }}</p>
+				{{ message.nom|sanitize_html|striptags }}
+				{{ message.prenom|sanitize_html|striptags }}</p>
 			<p class="mb-4">Coordonnée :
 				{{ message.email }},
 				{{ message.telephone }}</p>
 			<p class="mb-4">Message :
 				<br>
-				{{ message.message }}</p>
+				{{ message.message|sanitize_html|striptags }}</p>
 		</div>
 	</section>
 

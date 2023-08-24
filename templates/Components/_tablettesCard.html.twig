@@ -1,7 +1,7 @@
 <div class="block-card" id="tablette-{{ tablette.id }}">
 	<div class="block-card-content row">
 		<a href="{{ path('tablette.show', {slug: tablette.slug}) }}">
-			<h1 class="text-center">{{ tablette.nom }}</h1>
+			<h1 class="text-center">{{ tablette.nom|sanitize_html|striptags }}</h1>
 		</a>
 	</div>
 	<div class="block-card-img">
