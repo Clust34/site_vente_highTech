@@ -75,18 +75,12 @@ class Telephones
     #[Assert\NotBlank()]
     private ?int $quantity = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank()]
-    #[Assert\Length(
-        min: 2,
-        max: 255,
-        minMessage: 'La marque doit faire plus de {{ limit }} caractères',
-        maxMessage: 'La marque ne peut pas faire plus de {{ limit }} caractères'
-    )]
-    private ?string $marque = null;
-
     #[ORM\OneToMany(mappedBy: 'telephones', targetEntity: TelephoneImage::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $images;
+
+    #[ORM\ManyToOne(inversedBy: 'telephone')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Marque $marque = null;
 
     public function __construct()
     {
@@ -218,18 +212,6 @@ class Telephones
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): static
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, TelephoneImage>
      */
@@ -256,6 +238,18 @@ class Telephones
                 $image->setUpdatedAt(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMarque(): ?Marque
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(?Marque $marque_id): static
+    {
+        $this->marque = $marque_id;
 
         return $this;
     }

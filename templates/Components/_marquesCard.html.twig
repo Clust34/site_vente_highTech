@@ -1,0 +1,13 @@
+<div class="block-card" id="marque-{{ marque.id }}">
+	<div class="block-card-content">
+		<p>Marque :
+			{{ marque.nom }}</p>
+
+		{% if app.request.get('_route') == 'admin.marque.index' %}
+			<div class="block-card-button">
+				<a href="{{ path('admin.marque.edit', {id: marque.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Marques/_deleteForm.html.twig' %}
+			</div>
+		{% endif %}
+	</div>
+</div>

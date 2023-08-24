@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modification d'une marque
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center mt-4">Modification d'une marque</h1>
+	{% include 'Backend/Marques/_form.html.twig' with { buttonLabel: 'Modifier' }%}
+{% endblock %}

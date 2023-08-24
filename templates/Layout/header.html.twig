@@ -8,7 +8,7 @@
 		<div class="navbar-right">
 			<ul class="navbar-nav">
 				<li class="navbar-item">
-					<a href="/" class="navbar-link">Téléphones</a>
+					<a href="{{ path('.telephone') }}" class="navbar-link">Téléphones</a>
 					<a href="/" class="navbar-link">Tablettes</a>
 					<a href="/" class="navbar-link">Ordinateurs</a>
 					<a href="{{ path('app.contact') }}" class="navbar-link">Contact</a>
@@ -24,6 +24,7 @@
 							<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
 							<a href="{{ path('admin.tablettes.index') }}" class="dropdown-link">Tablettes</a>
 							<a href="{{ path('admin.ordinateurs.index') }}" class="dropdown-link">Ordinateurs</a>
+							<a href="{{ path('admin.marque.index') }}" class="dropdown-link">Marques</a>
 							<a href="{{ path('admin.contact') }}" class="dropdown-link">Contact</a>
 						</div>
 					</div>

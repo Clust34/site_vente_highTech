@@ -75,17 +75,12 @@ class Ordinateurs
     #[Assert\NotBlank()]
     private ?int $quantite = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\Length(
-        min: 2,
-        max: 255,
-        minMessage: 'La marque doit faire plus de {{ limit }} caractères',
-        maxMessage: 'La marque ne peut pas faire plus de {{ limit }} caractères'
-    )]
-    private ?string $marque = null;
-
     #[ORM\OneToMany(mappedBy: 'ordinateur', targetEntity: OrdinateurImage::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $images;
+
+    #[ORM\ManyToOne(inversedBy: 'ordinateur')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Marque $marque = null;
 
     public function __construct()
     {
@@ -217,18 +212,6 @@ class Ordinateurs
         return $this;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): static
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, OrdinateurImage>
      */
@@ -255,6 +238,18 @@ class Ordinateurs
                 $image->setOrdinateurs(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMarque(): ?Marque
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(?Marque $marque_id): static
+    {
+        $this->marque = $marque_id;
 
         return $this;
     }

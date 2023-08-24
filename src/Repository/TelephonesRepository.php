@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Telephones;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -62,6 +63,19 @@ class TelephonesRepository extends ServiceEntityRepository
             ->groupBy('tel')
             ->setMaxResults($limit)
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findSearchData(SearchData $search): array
+    {
+        $query = $this->createQueryBuilder('t')
+            ->select('t');
+
+        if (!empty($search->getQuery())) {
+            $query = $query->andWhere('t.marque LIKE :marque')
+                ->setParameter('marque', "%{$search->getQuery()}%");
+        }
+        return $query->getQuery()
             ->getResult();
     }
 
