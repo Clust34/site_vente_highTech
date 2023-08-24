@@ -39,6 +39,32 @@ class TelephonesRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Find the latest article with limit or not and all article or just enable article.
+     *
+     * @param int|null $limit
+     * @param bool     $actif
+     *
+     * @return array
+     */
+    public function findLatest(int $limit = null, bool $actif = true): array
+    {
+        $query = $this->createQueryBuilder('tel')
+            ->select('tel');
+
+        if ($actif) {
+            $query->where('tel.enable = :enable')
+                ->setParameter('enable', $actif);
+        }
+
+        return $query
+            ->orderBy('tel.createdAt', 'DESC')
+            ->groupBy('tel')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Telephones[] Returns an array of Telephones objects
     //     */

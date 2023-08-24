@@ -39,6 +39,32 @@ class OrdinateursRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Find the latest article with limit or not and all article or just enable article.
+     *
+     * @param int|null $limit
+     * @param bool     $actif
+     *
+     * @return array
+     */
+    public function findLatest(int $limit = null, bool $actif = true): array
+    {
+        $query = $this->createQueryBuilder('o')
+            ->select('o');
+
+        if ($actif) {
+            $query->where('o.actif = :actif')
+                ->setParameter('actif', $actif);
+        }
+
+        return $query
+            ->orderBy('o.created_at', 'DESC')
+            ->groupBy('o')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Ordinateurs[] Returns an array of Ordinateurs objects
     //     */

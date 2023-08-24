@@ -39,6 +39,32 @@ class TablettesRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Find the latest article with limit or not and all article or just enable article.
+     *
+     * @param int|null $limit
+     * @param bool     $actif
+     *
+     * @return array
+     */
+    public function findLatest(int $limit = null, bool $actif = true): array
+    {
+        $query = $this->createQueryBuilder('t')
+            ->select('t');
+
+        if ($actif) {
+            $query->where('t.actif = :actif')
+                ->setParameter('actif', $actif);
+        }
+
+        return $query
+            ->orderBy('t.ceated_at', 'DESC')
+            ->groupBy('t')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Tablettes[] Returns an array of Tablettes objects
     //     */

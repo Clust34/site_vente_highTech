@@ -11,3 +11,10 @@ import './styles/app.scss';
 // Import Javascript
 import './js/addCollectionInput';
 import './js/swiperDetail';
+import './js/swiperHome';
+
+// Import assets/images 
+import './Images/lac-mountain.jpg';
+import './Images/lac-seul.jpg';
+import './Images/mountain-landscape-g71f619bda_1920.jpg';
+import './Images/neige-trace.jpeg';

@@ -1,8 +1,9 @@
 import Swiper from 'swiper';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation} from 'swiper/modules';
 
 import 'swiper/scss';
 import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 
 const swiper = new Swiper('.detail-slider', {
     modules: [Autoplay, Navigation],
@@ -18,3 +19,4 @@ const swiper = new Swiper('.detail-slider', {
         delay: 3500,
     }
 });
+

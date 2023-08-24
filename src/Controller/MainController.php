@@ -18,9 +18,9 @@ class MainController extends AbstractController
     #[Route('', name: 'app.homepage', methods: ['GET'])]
     public function index(TelephonesRepository $telephRepo, OrdinateursRepository $repoOrdi, TablettesRepository $repoTab): Response
     {
-        $telephones = $telephRepo->findAll();
-        $tablette = $repoTab->findAll();
-        $ordinateur = $repoOrdi->findAll();
+        $telephones = $telephRepo->findLatest(3);
+        $tablette = $repoTab->findLatest(3);
+        $ordinateur = $repoOrdi->findLatest(3);
 
         return $this->render('Home/home.html.twig', [
             'telephones' => $telephones,
