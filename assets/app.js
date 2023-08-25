@@ -12,6 +12,7 @@ import './styles/app.scss';
 import './js/addCollectionInput';
 import './js/swiperDetail';
 import './js/swiperHome';
+import './js/menuBurger';
 
 // Import assets/images 
 import './Images/lac-mountain.jpg';

@@ -18,10 +18,8 @@
         gap: 3em;
     }
 
-    &-item {
-        display: flex;
-        gap: 6em;
-        font-size: 1em;
+    &-nav {
+        @include flexbox(space-between, center, wrap, 6em);
     }
 
     &_brand {
@@ -32,6 +30,7 @@
 
     &-link {
         font-family: $font-primary;
+        width: 40%;
 
         &:hover {
             color: $secondary;
@@ -42,6 +41,64 @@
         display: flex;
         align-items: center;
         gap: 1em;
+    }
+
+    &-lien {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2em;
+        list-style-type: none;
+        color: $secondary;
+        font-size: 1.6em;
+    }
+
+    &-burger {
+        display: inline-block;
+        width: 30px;
+        height: 3px;
+        background-color: $secondary;
+        border-radius: 15px;
+        position: relative;
+        transition: all .4s ease-out;
+        padding: unset;
+
+        &::after,
+        &::before {
+            content: " ";
+            display: inline-block;
+            width: 30px;
+            height: 3px;
+            background-color: $secondary;
+            border-radius: 15px;
+            position: absolute;
+            transition: all .4s ease-out;
+        }
+
+        &::after {
+            top: 8px;
+        }
+
+        &::before {
+            top: -8px;
+        }
+    }
+}
+
+.link-burger{
+    display: none;
+
+    &.open .navbar-burger {
+        background: transparent;
+    }
+
+    &.open .navbar-burger::after {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &.open .navbar-burger::before {
+        top: 0;
+        transform: rotate(-45deg);
     }
 }
 
@@ -72,7 +129,7 @@
         border-radius: 15px;
         background: $secondary;
         z-index: 999;
-        top: 100%;
+        top: 93%;
         left: 0;
         transition: all 0.4s ease-in-out;
     }
@@ -96,10 +153,11 @@
 
 span {
     color: $text-color;
-    padding: 0.8em 2em;
+    padding: 0.5em 1em;
     background: $secondary;
     border-radius: $border-radius;
     transition: all 0.4s ease-in-out;
+    font-size: .8em;
 
     &:hover {
         background: $hover-secondary;
@@ -115,8 +173,77 @@ span {
     }
 }
 
+.btn-nav {
+    font-size: .7em;
+}
 @media screen and (max-width: 768px) {
-    .navbar {
-        background: $secondary;
+    .link-burger {
+        display: inline-block;
+    }
+
+    .navbar-content {
+        @include flexbox(space-between);
+    }
+
+    .navbar-links ul {
+        display: none;
+        transform: scaleY(0);
+
+        &.open {
+            display: block;
+            transform: scaleY(1);
+        }
+    }
+
+    .nav-links-app {
+        display: none;
+        transform: scaleY(0);
+
+        &.open {
+            display: block;
+            transform: scaleY(1);
+        }
+    }
+    .navbar-links ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: $primary;
+        color: $text-color;
+        gap: 0;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform .4s ease-in-out;
+    }
+
+    .navbar-links ul li {
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    .navbar-links ul li{
+        border: 1px solid $text-color;
+    }
+
+    .navbar-links ul.open {
+        transform: scaleX(1);
+    }
+
+    .navbar-btn > a, 
+    .dropdown-content > a,
+    .admin-span {
+        font-size: 15px;
+    }
+
+    .navbar-content {
+        @include flexbox(space-between);
+    }
+
+    .navbar-btn {
+        @include flexbox(space-around, center, wrap, .5em);
     }
 }

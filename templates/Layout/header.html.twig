@@ -5,42 +5,57 @@
 				<i class="bi bi-pc-display logo"></i>
 			</a>
 		</div>
-		<div class="navbar-right">
-			<ul class="navbar-nav">
-				<li class="navbar-item">
-					<a href="{{ path('.telephone') }}" class="navbar-link">Téléphones</a>
-					<a href="{{ path('.tablette') }}" class="navbar-link">Tablettes</a>
-					<a href="{{ path('.ordinateur') }}" class="navbar-link">Ordinateurs</a>
-					<a href="{{ path('app.contact') }}" class="navbar-link">Contact</a>
-				</li>
-			</ul>
-		</div>
-		<div class="navbar-btn">
-			{% if app.user %}
-				{% if is_granted('ROLE_ADMIN') %}
-					<div class="dropdown btn navbar-btn btn-light">
-						<span class="me-2">Admin</span>
-						<div class="dropdown-content">
-							<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
-							<a href="{{ path('admin.tablettes.index') }}" class="dropdown-link">Tablettes</a>
-							<a href="{{ path('admin.ordinateurs.index') }}" class="dropdown-link">Ordinateurs</a>
-							<a href="{{ path('admin.marque.index') }}" class="dropdown-link">Marques</a>
-							<a href="{{ path('admin.contact') }}" class="dropdown-link">Contact</a>
-						</div>
-					</div>
-				{% endif %}
-				<a href="/">
-					<i class="bi bi-cart4 panier"></i>
-				</a>
-				<a class="btn btn-primary" href="{{ path('compte') }}">Mon Compte</a>
-				<a class='btn btn-primary' href="{{ path('app.logout') }}">Se deconnecter</a>
 
-			{% else %}
-				<a href="{{ path('app.register') }}" class="btn btn-primary">S'inscrire</a>
-				<a class='btn btn-primary' href="{{ path('app.login')}}">Se connecter
-				</a>
-			{% endif %}
+		<div class="navbar-links">
+			<div class="navbar-right">
+				<ul class="navbar-nav">
+					<li class="navbar-item">
+						<a href="{{ path('.telephone') }}" class="navbar-link">Téléphones</a>
+					</li>
+					<li class="navbar-item">
+						<a href="{{ path('.tablette') }}" class="navbar-link">Tablettes</a>
+					</li>
+					<li class="navbar-item">
+						<a href="{{ path('.ordinateur') }}" class="navbar-link">Ordinateurs</a>
+					</li>
+					<li class="navbar-item">
+						<a href="{{ path('app.contact') }}" class="navbar-link">Contact</a>
+					</li>
+				</ul>
+			</div>
 		</div>
+		<a class="link-burger">
+			<span class="navbar-burger"></span>
+		</a>
+		<div class="navbar-links nav-links-app">
+			<div class="navbar-btn navbar-lien">
+				{% if app.user %}
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="dropdown btn navbar-btn btn-light nav-links-app">
+							<span class="admin-span">Admin</span>
+							<div class="dropdown-content">
+								<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
+								<a href="{{ path('admin.tablettes.index') }}" class="dropdown-link">Tablettes</a>
+								<a href="{{ path('admin.ordinateurs.index') }}" class="dropdown-link">Ordinateurs</a>
+								<a href="{{ path('admin.marque.index') }}" class="dropdown-link">Marques</a>
+								<a href="{{ path('admin.contact') }}" class="dropdown-link">Contact</a>
+							</div>
+						</div>
+					{% endif %}
+					<a href="/">
+						<i class="bi bi-cart4 panier nav-links-app"></i>
+					</a>
+					<a class="btn btn-primary btn-nav nav-links-app" href="{{ path('compte') }}">Mon Compte</a>
+					<a class='btn btn-primary btn-nav nav-links-app' href="{{ path('app.logout') }}">Se deconnecter</a>
+				{% else %}
+					<a href="{{ path('app.register') }}" class="btn btn-primary btn-nav nav-links-app">S'inscrire</a>
+					<a class='btn btn-primary btn-nav nav-links-app' href="{{ path('app.login')}}">Se connecter
+					</a>
+				{% endif %}
+
+			</div>
+		</div>
+
 
 	</nav>
 </header>

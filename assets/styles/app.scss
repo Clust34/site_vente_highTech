@@ -5,13 +5,15 @@
 // Import Bootstrap Icons
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
 
+// Import des mixins
+@import "./mixins.scss";
+
 // Import des structures règles et messages flash
 @import "./_structure.scss";
 @import "./Layout/_header.scss";
 @import "./Layout/messages.scss";
 
-// Import des mixins
-@import "./mixins.scss";
+
 
 // Import cards
 @import "./Cards/TelephonesCard.scss";
@@ -33,3 +35,6 @@
 
 // Import Home
 @import "./Home/sliderHome.scss";
+
+// Import Search
+@import "./Search/search.scss";

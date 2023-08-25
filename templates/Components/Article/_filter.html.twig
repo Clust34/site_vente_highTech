@@ -1,10 +1,15 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'class': 'mt-4 form'}}) }}
+<div class="form-email">
+	{{ form_row(form.query, {'attr': {'class': 'mt-4'}}) }}
 
-{{ form_row(form.query) }}
+</div>
 
-<h3>Marques :
+<h3 class="mt-2 ml-2">Marques :
 </h3>
-{{ form_row(form.marques) }}
+<div class="form-email">
+	{{ form_row(form.marques) }}
+
+</div>
 
 <button class="btn btn-primary" type="submit">Rechercher</button>
 
