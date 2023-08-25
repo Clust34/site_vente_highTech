@@ -16,7 +16,7 @@
 			<p>{{ telephone.description|slice(0, 150)|sanitize_html|striptags }}...</p>
 		{% endif %}
 		<p>Marque :
-			{{ telephone.marque|sanitize_html|striptags }}</p>
+			{{ telephone.marque.nom }}</p>
 		<div class="row">
 			<p>Prix :
 				{{ telephone.prix }}

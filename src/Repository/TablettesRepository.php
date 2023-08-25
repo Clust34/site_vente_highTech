@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Tablettes;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Tablettes>
@@ -62,6 +63,26 @@ class TablettesRepository extends ServiceEntityRepository
             ->groupBy('t')
             ->setMaxResults($limit)
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findSearchData(SearchData $search): array
+    {
+        $query = $this->createQueryBuilder('t')
+            ->select('t', 'm')
+            ->innerJoin('t.marque', 'm');
+
+        if (!empty($search->getQuery())) {
+            $query->andWhere('t.nom LIKE :nom')
+                ->setParameter('nom', "%{$search->getQuery()}%");
+        }
+
+        if (!empty($search->getMarques())) {
+            $query->andWhere('m.id IN (:marques)')
+                ->setParameter('marques', $search->getMarques());
+        }
+
+        return $query->getQuery()
             ->getResult();
     }
 

@@ -69,12 +69,19 @@ class TelephonesRepository extends ServiceEntityRepository
     public function findSearchData(SearchData $search): array
     {
         $query = $this->createQueryBuilder('t')
-            ->select('t');
+            ->select('t', 'm')
+            ->innerJoin('t.marque', 'm');
 
         if (!empty($search->getQuery())) {
-            $query = $query->andWhere('t.marque LIKE :marque')
-                ->setParameter('marque', "%{$search->getQuery()}%");
+            $query->andWhere('t.nom LIKE :nom')
+                ->setParameter('nom', "%{$search->getQuery()}%");
         }
+
+        if (!empty($search->getMarques())) {
+            $query->andWhere('m.id IN (:marques)')
+                ->setParameter('marques', $search->getMarques());
+        }
+
         return $query->getQuery()
             ->getResult();
     }

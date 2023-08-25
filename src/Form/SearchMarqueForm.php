@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Data\SearchData;
+use App\Entity\Marque;
 use App\Entity\Telephones;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -17,7 +18,7 @@ class SearchMarqueForm extends AbstractType
     {
         $builder
             ->add('query', TextType::class, [
-                'label' => false,
+                'label' => 'Nom : ',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Rechercher'
@@ -26,13 +27,14 @@ class SearchMarqueForm extends AbstractType
             ->add('marques', EntityType::class, [
                 'label' => false,
                 'required' => false,
-                'class' => Telephones::class,
+                'class' => Marque::class,
                 'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('t')
-                        ->andWhere('t.enable = true')
-                        ->orderBy('t.marque', 'ASC');
+                    return $er->createQueryBuilder('m')
+                        ->innerJoin('m.telephone', 'te')
+                        ->innerJoin('m.tablette', 'ta')
+                        ->innerJoin('m.ordinateur', 'o');
                 },
-                'choice_label' => 'marque',
+                'choice_label' => 'nom',
                 'multiple' => true,
                 'expanded' => true
             ]);
@@ -45,5 +47,10 @@ class SearchMarqueForm extends AbstractType
             'method' => 'GET',
             'csrf_protection' => false,
         ]);
+    }
+
+    public function getBlockPrefix(): string
+    {
+        return '';
     }
 }

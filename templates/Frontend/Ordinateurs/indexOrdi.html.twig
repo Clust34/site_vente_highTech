@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste des ordinateurs
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Tous nos ordinateurs</h1>
+		{% include "Components/Article/_filter.html.twig" with {form: form} only %}
+		<div class="block-list mt-4">
+			{% for ordinateur in ordinateurs %}
+				{% include 'Components/_ordinateursCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

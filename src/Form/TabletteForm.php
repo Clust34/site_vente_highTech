@@ -2,10 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\Marque;
 use App\Entity\Tablettes;
+use Doctrine\ORM\QueryBuilder;
 use App\Form\TabletteImageForm;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -65,12 +69,18 @@ class TabletteForm extends AbstractType
                     'placeholder' => 50
                 ]
             ])
-            ->add('marque', TextType::class, [
-                'label' => 'Marque du téléphone :',
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Marque top'
-                ]
+            ->add('marque', EntityType::class, [
+                'label' => 'Catégories:',
+                'class' => Marque::class,
+                'choice_label' => 'nom',
+                'expanded' => false,
+                'multiple' => false,
+                'query_builder' => function (EntityRepository $er): QueryBuilder {
+                    return $er->createQueryBuilder('m')
+                        ->orderBy('m.nom', 'ASC');
+                },
+                'autocomplete' => true,
+                'required' => false,
             ])
             ->add('actif', CheckboxType::class, [
                 'label' => 'Actif',

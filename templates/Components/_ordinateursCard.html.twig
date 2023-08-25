@@ -16,7 +16,7 @@
 			<p>{{ ordinateur.description|slice(0, 150)|sanitize_html|striptags }}...</p>
 		{% endif %}
 		<p>Marque :
-			{{ ordinateur.marque|sanitize_html|striptags }}</p>
+			{{ ordinateur.marque.nom }}</p>
 		<div class="row">
 			<p>Prix :
 				{{ ordinateur.prix }}

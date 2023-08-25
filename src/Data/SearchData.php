@@ -18,11 +18,6 @@ class SearchData
      */
     private ?array $marques = [];
 
-    public function getBlockPrefix(): string
-    {
-        return '';
-    }
-
     /**
      * Get the value of query
      *

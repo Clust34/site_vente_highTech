@@ -16,7 +16,7 @@
 			<p>{{ tablette.description|slice(0, 150)|sanitize_html|striptags }}...</p>
 		{% endif %}
 		<p>Marque :
-			{{ tablette.marque }}</p>
+			{{ tablette.marque.nom }}</p>
 		<div class="row">
 			<p>Prix :
 				{{ tablette.prix }}

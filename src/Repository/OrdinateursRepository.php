@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Ordinateurs;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Ordinateurs>
@@ -62,6 +63,26 @@ class OrdinateursRepository extends ServiceEntityRepository
             ->groupBy('o')
             ->setMaxResults($limit)
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findSearchData(SearchData $search): array
+    {
+        $query = $this->createQueryBuilder('o')
+            ->select('o', 'm')
+            ->innerJoin('o.marque', 'm');
+
+        if (!empty($search->getQuery())) {
+            $query->andWhere('o.nom LIKE :nom')
+                ->setParameter('nom', "%{$search->getQuery()}%");
+        }
+
+        if (!empty($search->getMarques())) {
+            $query->andWhere('m.id IN (:marques)')
+                ->setParameter('marques', $search->getMarques());
+        }
+
+        return $query->getQuery()
             ->getResult();
     }
 

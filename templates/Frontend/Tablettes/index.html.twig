@@ -18,13 +18,13 @@
 					{{ tablette.prix }}
 					€</p>
 				<p class="mt-4 mb-4">Marque :
-					{{ tablette.marque|sanitize_html|striptags }}</p>
+					{{ tablette.marque.nom }}</p>
 				<p class="mt-4 mb-4">Description :
 					<br>
 					{{ tablette.description|sanitize_html|striptags }}</p>
 				<div class="block-button">
-					<a href="{{ path('app.contact') }}" class="link">Une question ? Contacter nous.</a>
-					<a href="#" class="btn btn-secondary">Ajouter au panier</a>
+					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
+					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
 				</div>
 			</div>
 
