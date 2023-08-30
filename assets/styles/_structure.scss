@@ -180,6 +180,18 @@ section {
 .me-2 {
   margin-block-end: 1em;
 }
+
+.parent-password {
+  position: relative;
+
+  .icon-password {
+      position: absolute;
+      top: 50%;
+      right: 1%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+  }
+}
 /*********** BUTTON ***********/
 
 .btn {

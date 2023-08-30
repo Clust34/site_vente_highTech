@@ -1,5 +1,5 @@
 .block-detail {
-    @include flexbox(space-between, start, wrap, 1em);
+    @include flexbox(space-between, center, wrap, 1em);
 
     width: 80%;
     margin: auto;
@@ -19,5 +19,18 @@
         & > a {
             width: 40%;
         }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .block-detail{
+        &-slider,
+        &-content {
+            width: 100%;
+        }
+    }
+
+    .detail-slider {
+        height: 30vh !important;
     }
 }

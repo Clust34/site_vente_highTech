@@ -15,12 +15,14 @@
 		<form action="{{ path('app.login') }}" method="post" class="mt-4 form">
 			<div class="form-row-login">
 				<div class="form-row-login-midle">
-					<label for="username">Email:</label>
+					<label for="username">Email :
+					</label>
 					<input type="text" id="username" name="_username" value="{{ last_username }}">
 				</div>
 				<div class="form-row-login-midle">
-					<label for="password">Password:</label>
-					<input type="password" id="password" name="_password" placeholder="S3CR3T">
+					<label for="password">Password :
+					</label>
+					<input type="password" id="password" name="_password" placeholder="S3CR3T" name="_password">
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 				</div>
 			</div>

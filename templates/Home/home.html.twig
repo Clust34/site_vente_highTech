@@ -11,7 +11,7 @@
 		<h1 class="text-center mb-4 mt-4">Page d'accueil</h1>
 		<h2 class="mb-4 mt-4">Quelques Téléphones</h2>
 		<div>
-			<a href="" class="btn btn-primary">Voir tout</a>
+			<a href="{{ path('.telephone')}}" class="btn btn-primary">Voir tout</a>
 		</div>
 		<div class="block-list mt-4">
 			{% for telephone in telephones %}
@@ -20,7 +20,7 @@
 		</div>
 		<h2 class="mb-4 mt-4">Quelques Tablettes</h2>
 		<div>
-			<a href="" class="btn btn-primary">Voir tout</a>
+			<a href="{{ path('.tablette')}}" class="btn btn-primary">Voir tout</a>
 		</div>
 		<div class="block-list mt-4">
 			{% for tablette in tablettes %}
@@ -29,7 +29,7 @@
 		</div>
 		<h2 class="mb-4 mt-4">Quelques Ordinateurs</h2>
 		<div>
-			<a href="" class="btn btn-primary">Voir tout</a>
+			<a href="{{ path('.ordinateur')}}" class="btn btn-primary">Voir tout</a>
 		</div>
 		<div class="block-list mt-4">
 			{% for ordinateur in ordinateurs %}

@@ -8,6 +8,7 @@ use App\Repository\TablettesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -94,5 +95,26 @@ class TablettesController extends AbstractController
         $this->addFlash('error', 'Token invalide');
 
         return $this->redirectToRoute('admin.tablettes.index');
+    }
+
+    #[Route('/switch/{id}', name: '.switch', methods: ['GET'])]
+    public function switch(?Tablettes $tablette): JsonResponse
+    {
+        if (!$tablette instanceof Tablettes) {
+            return new JsonResponse([
+                'status' => 'error',
+                'message' => 'Tablette non trouvée.',
+            ], 404);
+        }
+
+        $tablette->setActif(!$tablette->isActif());
+
+        $this->repoTab->save($tablette);
+
+        return new JsonResponse([
+            'status' => 'success',
+            'message' => 'Tablette mise à jour avec succès.',
+            'enable' => $tablette->isActif(),
+        ], 201);
     }
 }

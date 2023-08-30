@@ -8,6 +8,7 @@ use App\Repository\TelephonesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -91,5 +92,26 @@ class TelephonesController extends AbstractController
         $this->addFlash('error', 'Token invalide');
 
         return $this->redirectToRoute('admin.telephones.index');
+    }
+
+    #[Route('/switch/{id}', name: '.switch', methods: ['GET'])]
+    public function switch(?Telephones $telephone): JsonResponse
+    {
+        if (!$telephone instanceof Telephones) {
+            return new JsonResponse([
+                'status' => 'error',
+                'message' => 'Téléphone non trouvé.',
+            ], 404);
+        }
+
+        $telephone->setEnable(!$telephone->isEnable());
+
+        $this->repoTel->save($telephone);
+
+        return new JsonResponse([
+            'status' => 'success',
+            'message' => 'Téléphone mis à jour avec succès.',
+            'enable' => $telephone->isEnable(),
+        ], 201);
     }
 }

@@ -13,6 +13,10 @@ import './js/addCollectionInput';
 import './js/swiperDetail';
 import './js/swiperHome';
 import './js/menuBurger';
+import './js/switchTelphoneActif';
+import './js/showPassword';
+import './js/switchTablettes';
+import './js/switchOrdinateurs';
 
 // Import assets/images 
 import './Images/lac-mountain.jpg';

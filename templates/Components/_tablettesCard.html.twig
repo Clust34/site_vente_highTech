@@ -26,9 +26,13 @@
 		</div>
 
 		{% if app.request.get('_route') == 'admin.tablettes.index' %}
-			<p class="badge fs-6 {{ tablette.actif ? 'bg-success' : 'bg-danger' }}">
-				{{ tablette.actif ? 'Actif' : 'Inactif' }}
-			</p>
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ tablette.id }}" data-id="{{ tablette.id }}" {{ tablette.actif ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ tablette.id }}" class="form-check-label blog-card-actif {{ tablette.actif ? 'text-success' : 'text-danger' }}">
+						{{ tablette.actif ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
 			<div class="block-card-button justify-content-between">
 				<a href="{{ path('admin.tablettes.edit', {id: tablette.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Tablettes/_deleteForm.html.twig' %}

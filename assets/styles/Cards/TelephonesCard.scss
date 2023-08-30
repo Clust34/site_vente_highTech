@@ -43,7 +43,7 @@
 
             img {
                 display: inherit;
-                aspect-ratio: 3/2;
+                // aspect-ratio: 3/2;
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
@@ -63,4 +63,18 @@
 
 .block-card > .row {
     justify-content: center;
+}
+
+.text-success {
+    color: $success;
+}
+
+.text-danger {
+    color: $danger;
+}
+
+@media screen and (max-width: 768px) {
+    .block-card {
+        width: 100% !important;
+    }
 }

@@ -81,6 +81,7 @@ input {
     border: 1px solid $text-color;
     border-radius: $border-radius;
     text-align: center;
+    height: 2em;
 }
 
 button {
@@ -101,4 +102,19 @@ button {
 
 option {
     margin: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .form{
+        &-email {
+            & > div {
+                grid-template-columns: 28% 70%;
+                width: 100%;
+            }
+        }
+
+        &-row-midle {
+            width: 100%;
+        }
+    }
 }

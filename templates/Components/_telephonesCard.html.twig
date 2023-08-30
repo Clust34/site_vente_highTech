@@ -26,9 +26,13 @@
 		</div>
 
 		{% if app.request.get('_route') == 'admin.telephones.index' %}
-			<p class="badge fs-6 {{ telephone.enable ? 'bg-success' : 'bg-danger' }}">
-				{{ telephone.enable ? 'Actif' : 'Inactif' }}
-			</p>
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ telephone.id }}" data-id="{{ telephone.id }}" {{ telephone.enable ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ telephone.id }}" class="form-check-label blog-card-actif {{ telephone.enable ? 'text-success' : 'text-danger' }}">
+						{{ telephone.enable ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
 			<div class="block-card-button justify-content-between">
 				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Telephones/_deleteForm.html.twig' %}

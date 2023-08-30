@@ -3,7 +3,7 @@ let burgerBtn = document.querySelector('.link-burger');
 
 // on récupère l'élément HTML balise ul avec le menu pour ajouter la classe
 // open au click sur l'élément burgerBtn
-let navbarLinks = document.querySelector('.navbar-links ul');
+let navbarLinks = document.querySelector('.navbar-links');
 let navbarLinksApp = document.querySelectorAll('.nav-links-app');
 
 if (burgerBtn && navbarLinks && navbarLinksApp) {

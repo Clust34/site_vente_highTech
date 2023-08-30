@@ -26,9 +26,13 @@
 		</div>
 
 		{% if app.request.get('_route') == 'admin.ordinateurs.index' %}
-			<p class="badge fs-6 {{ ordinateur.actif ? 'bg-success' : 'bg-danger' }}">
-				{{ ordinateur.actif ? 'Actif' : 'Inactif' }}
-			</p>
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ ordinateur.id }}" data-id="{{ ordinateur.id }}" {{ ordinateur.actif ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ ordinateur.id }}" class="form-check-label blog-card-actif {{ ordinateur.actif ? 'text-success' : 'text-danger' }}">
+						{{ ordinateur.actif ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
 			<div class="block-card-button justify-content-between">
 				<a href="{{ path('admin.ordinateurs.edit', {id: ordinateur.id}) }}" class="btn btn-secondary">Modifier</a>
 				{% include 'Backend/Ordinateurs/_deleteForm.html.twig' %}

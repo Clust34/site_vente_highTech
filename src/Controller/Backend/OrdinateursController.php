@@ -2,12 +2,13 @@
 
 namespace App\Controller\Backend;
 
-use App\Form\OrdinateurForm;
 use App\Entity\Ordinateurs;
+use App\Form\OrdinateurForm;
 use App\Repository\OrdinateursRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -94,5 +95,26 @@ class OrdinateursController extends AbstractController
         $this->addFlash('error', 'Token invalide');
 
         return $this->redirectToRoute('admin.ordinateurs.index');
+    }
+
+    #[Route('/switch/{id}', name: '.switch', methods: ['GET'])]
+    public function switch(?Ordinateurs $ordinateur): JsonResponse
+    {
+        if (!$ordinateur instanceof Ordinateurs) {
+            return new JsonResponse([
+                'status' => 'error',
+                'message' => 'Tablette non trouvée.',
+            ], 404);
+        }
+
+        $ordinateur->setActif(!$ordinateur->isActif());
+
+        $this->repoOrdi->save($ordinateur);
+
+        return new JsonResponse([
+            'status' => 'success',
+            'message' => 'Tablette mise à jour avec succès.',
+            'enable' => $ordinateur->isActif(),
+        ], 201);
     }
 }

@@ -176,16 +176,24 @@ span {
 .btn-nav {
     font-size: .7em;
 }
+
+.see-off-full{
+    display: none;
+}
 @media screen and (max-width: 768px) {
     .link-burger {
         display: inline-block;
+
+        &.open {
+            height: 36px;
+        }
     }
 
     .navbar-content {
         @include flexbox(space-between);
     }
 
-    .navbar-links ul {
+    .navbar-links {
         display: none;
         transform: scaleY(0);
 
@@ -198,6 +206,7 @@ span {
     .nav-links-app {
         display: none;
         transform: scaleY(0);
+        z-index: 999;
 
         &.open {
             display: block;
@@ -245,5 +254,13 @@ span {
 
     .navbar-btn {
         @include flexbox(space-around, center, wrap, .5em);
+    }
+
+    .see-off-full {
+        display: inline-block;
+    }
+    
+    .btn-nav {
+        display: none;
     }
 }
