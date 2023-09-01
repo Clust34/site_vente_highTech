@@ -19,12 +19,12 @@
 					€</p>
 				<p class="mt-4 mb-4">Marque :
 					{{ ordinateur.marque.nom }}</p>
-				<p class="mt-4 mb-4">Description :
-					<br>
-					{{ ordinateur.description|sanitize_html|striptags }}</p>
+				<article class="mt-4 mb-4">Description :
+					{{ ordinateur.description|sanitize_html }}</article>
 				<div class="block-button">
 					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
 					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
+					<a href="{{ path('.ordinateur') }}" class="btn btn-primary mt-4 mb-4 text-center">Retour à liste</a>
 				</div>
 			</div>
 

@@ -30,9 +30,9 @@ class SearchMarqueForm extends AbstractType
                 'class' => Marque::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('m')
-                        ->innerJoin('m.telephone', 'te')
-                        ->innerJoin('m.tablette', 'ta')
-                        ->innerJoin('m.ordinateur', 'o');
+                        ->leftJoin('m.telephone', 'te')
+                        ->leftJoin('m.tablette', 'ta')
+                        ->leftJoin('m.ordinateur', 'o');
                 },
                 'choice_label' => 'nom',
                 'multiple' => true,

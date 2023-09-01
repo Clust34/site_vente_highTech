@@ -21,3 +21,9 @@ button {
 .fond-prim {
     background: $primary;
 }
+
+@media screen and (max-width: 768px) {
+    tr {
+        @include flexbox();
+    }
+}

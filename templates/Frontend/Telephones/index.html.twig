@@ -19,15 +19,14 @@
 					€</p>
 				<p class="mt-4 mb-4">Marque :
 					{{ telephone.marque.nom }}</p>
-				<p class="mt-4 mb-4">Description :
-					<br>
-					{{ telephone.description|sanitize_html|striptags }}</p>
+				<article class="mt-4 mb-4">Description :
+					{{ telephone.description|sanitize_html }}</article>
 				<div class="block-button">
 					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
 					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
 				</div>
+				<a href="{{ path('.telephone') }}" class="btn btn-primary mt-4 mb-4 text-center">Retour à liste</a>
 			</div>
-
 		</div>
 	</section>
 {% endblock %}

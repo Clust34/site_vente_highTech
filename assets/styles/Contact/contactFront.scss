@@ -12,3 +12,16 @@
         width: 45%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .block-carte {
+        iframe { 
+            width: 100%;
+        }
+
+        &-content {
+            @include flexbox(center, center, wrap, 2em);
+            width: 100%;
+        }
+    }
+}
