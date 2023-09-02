@@ -1,5 +1,5 @@
 .block-list {
-    @include flexbox(space-between, center, wrap, 1em);
+    @include flexbox(space-between, start, wrap, 1em);
 
     width: 90%;
     margin: auto;

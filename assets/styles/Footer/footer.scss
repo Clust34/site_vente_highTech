@@ -1,0 +1,27 @@
+.block-footer {
+    background-color: $primary;
+    padding-bottom: 4em;
+
+    &-social {
+        font-size: 2em;
+        padding-top: 2em;
+        transition: all ease-in-out .4s;
+
+        & > a:hover {
+            color: $secondary;
+        }
+    }
+
+    &-list {
+        @include flexbox(center, center, wrap, 4em);
+        margin: 4em 0;
+
+        &-item > a:hover {
+            color: $secondary;
+        }
+    }
+}
+
+.copyright {
+    margin-bottom: 0 !important;
+}

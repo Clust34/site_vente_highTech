@@ -5,8 +5,11 @@
 				<i class="bi bi-pc-display logo"></i>
 			</a>
 		</div>
-		<div class=" dropdown">
-			<span class="admin-span">Nos produits</span>
+		<div class="dropdown">
+			<span class="admin-span">
+				Nos produits
+				<i class="bi bi-caret-down-fill"></i>
+			</span>
 			<div class="navbar-right dropdown-content">
 				<a href="{{ path('.telephone') }}" class="dropdown-link">Téléphones</a>
 				<a href="{{ path('.tablette') }}" class="dropdown-link">Tablettes</a>
@@ -19,8 +22,11 @@
 			<div class="navbar-btn navbar-lien">
 				{% if app.user %}
 					{% if is_granted('ROLE_ADMIN') %}
-						<div class="dropdown btn navbar-btn btn-light btn-nav">
-							<span class="admin-span">Admin</span>
+						<div class="dropdown btn-nav">
+							<span class="admin-span">
+								Admin
+								<i class="bi bi-caret-down-fill"></i>
+							</span>
 							<div class="dropdown-content">
 								<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
 								<a href="{{ path('admin.tablettes.index') }}" class="dropdown-link">Tablettes</a>

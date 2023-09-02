@@ -18,14 +18,38 @@ class MainController extends AbstractController
     #[Route('', name: 'app.homepage', methods: ['GET'])]
     public function index(TelephonesRepository $telephRepo, OrdinateursRepository $repoOrdi, TablettesRepository $repoTab): Response
     {
-        $telephones = $telephRepo->findLatest(3);
-        $tablette = $repoTab->findLatest(3);
-        $ordinateur = $repoOrdi->findLatest(3);
+        $telephones = $telephRepo->findLatest(6);
+        $tablette = $repoTab->findLatest(6);
+        $ordinateur = $repoOrdi->findLatest(6);
 
         return $this->render('Home/home.html.twig', [
             'telephones' => $telephones,
             'ordinateurs' => $ordinateur,
             'tablettes' => $tablette
         ]);
+    }
+
+    #[Route('/mentions/legales', name: 'mentions.legales')]
+    public function mention(): Response
+    {
+        return $this->render('Footer/mentionsLegales.html.twig');
+    }
+
+    #[Route('/cgv', name: '.cgv')]
+    public function cgv(): Response
+    {
+        return $this->render('Footer/cgv.html.twig');
+    }
+
+    #[Route('/donneesPerso', name: '.donneesPerso')]
+    public function donneesPerso(): Response
+    {
+        return $this->render('Footer/donneesPerso.html.twig');
+    }
+
+    #[Route('/cookies', name: '.cookies')]
+    public function cookies(): Response
+    {
+        return $this->render('Footer/cookies.html.twig');
     }
 }

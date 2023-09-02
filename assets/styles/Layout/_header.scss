@@ -111,33 +111,36 @@
         transition: all 0.4s ease-in-out;
 
         &:hover {
-            background: $hover-text-color;
+            background: #0b0b0b4b;
         }
 
         &:hover:last-child {
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 5px 5px;
         }
 
         &:hover:first-child {
-            border-radius: 15px 15px 0 0;
+            border-radius: 5px 5px 0 0;
         }
     }
 
     &-content{
         display: none;
         position: absolute;
-        border-radius: 15px;
+        border-radius: 5px;
         background: $secondary;
         z-index: 999;
-        top: 93%;
+        top: 100%;
         left: 0;
         transition: all 0.4s ease-in-out;
+        
     }
 
     &-content > * {
         padding: .6em 1em;
         width: 76%;
         text-align: center;
+
+       
     }
 
     &-content > *:not(:last-child) {
@@ -149,6 +152,8 @@
             display: block;
         }
     }
+
+    
 }
 
 span {
@@ -165,7 +170,7 @@ span {
 }
 
 .panier {
-    font-size: 2em;
+    font-size: 1.5em;
     color: $text-color;
 
     &:hover {
@@ -262,5 +267,9 @@ span {
     
     .btn-nav {
         display: none;
+    }
+
+    .panier {
+        font-size: 2.5em;
     }
 }
