@@ -69,7 +69,7 @@ class TelephoneForm extends AbstractType
                 ]
             ])
             ->add('marque', EntityType::class, [
-                'label' => 'Catégories:',
+                'label' => 'Catégories :',
                 'class' => Marque::class,
                 'choice_label' => 'nom',
                 'expanded' => false,

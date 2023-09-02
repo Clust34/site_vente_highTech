@@ -72,10 +72,10 @@ class TablettesRepository extends ServiceEntityRepository
             ->select('t', 'm')
             ->innerJoin('t.marque', 'm');
 
-        if (!empty($search->getQuery())) {
-            $query->andWhere('t.nom LIKE :nom')
-                ->setParameter('nom', "%{$search->getQuery()}%");
-        }
+        // if (!empty($search->getQuery())) {
+        //     $query->andWhere('t.nom LIKE :nom')
+        //         ->setParameter('nom', "%{$search->getQuery()}%");
+        // }
 
         if (!empty($search->getMarques())) {
             $query->andWhere('m.id IN (:marques)')

@@ -72,10 +72,10 @@ class OrdinateursRepository extends ServiceEntityRepository
             ->select('o', 'm')
             ->innerJoin('o.marque', 'm');
 
-        if (!empty($search->getQuery())) {
-            $query->andWhere('o.nom LIKE :nom')
-                ->setParameter('nom', "%{$search->getQuery()}%");
-        }
+        // if (!empty($search->getQuery())) {
+        //     $query->andWhere('o.nom LIKE :nom')
+        //         ->setParameter('nom', "%{$search->getQuery()}%");
+        // }
 
         if (!empty($search->getMarques())) {
             $query->andWhere('m.id IN (:marques)')

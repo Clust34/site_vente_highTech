@@ -23,3 +23,4 @@ import './Images/lac-mountain.jpg';
 import './Images/lac-seul.jpg';
 import './Images/mountain-landscape-g71f619bda_1920.jpg';
 import './Images/neige-trace.jpeg';
+import './Images/construction.jpg';

@@ -22,6 +22,13 @@ class TelephonesRepository extends ServiceEntityRepository
         parent::__construct($registry, Telephones::class);
     }
 
+    /**
+     * Save an article in DB
+     *
+     * @param Telephones $entity
+     * @param boolean $flush
+     * @return void
+     */
     public function save(Telephones $entity, bool $flush = true): void
     {
         $this->getEntityManager()->persist($entity);
@@ -31,6 +38,13 @@ class TelephonesRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove an article in DB
+     *
+     * @param Telephones $entity
+     * @param boolean $flush
+     * @return void
+     */
     public function remove(Telephones $entity, bool $flush = true): void
     {
         $this->getEntityManager()->remove($entity);
@@ -66,16 +80,22 @@ class TelephonesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Find article by marque
+     *
+     * @param SearchData $search
+     * @return array
+     */
     public function findSearchData(SearchData $search): array
     {
         $query = $this->createQueryBuilder('t')
             ->select('t', 'm')
             ->innerJoin('t.marque', 'm');
 
-        if (!empty($search->getQuery())) {
-            $query->andWhere('t.nom LIKE :nom')
-                ->setParameter('nom', "%{$search->getQuery()}%");
-        }
+        // if (!empty($search->getQuery())) {
+        //     $query->andWhere('t.nom LIKE :nom')
+        //         ->setParameter('nom', "%{$search->getQuery()}%");
+        // }
 
         if (!empty($search->getMarques())) {
             $query->andWhere('m.id IN (:marques)')

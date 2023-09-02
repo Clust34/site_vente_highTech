@@ -4,7 +4,7 @@ namespace App\Controller\Frontend;
 
 use App\Data\SearchData;
 use App\Entity\Ordinateurs;
-use App\Form\SearchMarqueForm;
+use App\Form\SearchMarqueFormOrdi;
 use App\Repository\OrdinateursRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +23,7 @@ class OrdinateurController extends AbstractController
     {
         $data = new SearchData;
 
-        $form = $this->createForm(SearchMarqueForm::class, $data);
+        $form = $this->createForm(SearchMarqueFormOrdi::class, $data);
         $form->handleRequest($request);
 
         $ordinateur = $this->repoOrdi->findSearchData($data);

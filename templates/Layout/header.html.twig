@@ -33,10 +33,11 @@
 								<a href="{{ path('admin.ordinateurs.index') }}" class="dropdown-link">Ordinateurs</a>
 								<a href="{{ path('admin.marque.index') }}" class="dropdown-link">Marques</a>
 								<a href="{{ path('admin.contact') }}" class="dropdown-link">Contact</a>
+								<a href="{{ path('admin.users.index') }}" class="dropdown-link">Utilisateurs</a>
 							</div>
 						</div>
 					{% endif %}
-					<a href="/">
+					<a href="{{ path('.panier') }}">
 						<i class="bi bi-cart4 panier"></i>
 					</a>
 					<a class="btn btn-primary btn-nav" href="{{ path('compte') }}">Mon Compte</a>

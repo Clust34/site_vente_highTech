@@ -5,7 +5,7 @@ namespace App\Controller\Frontend;
 
 use App\Data\SearchData;
 use App\Entity\Tablettes;
-use App\Form\SearchMarqueForm;
+use App\Form\SearchMarqueFormTab;
 use App\Repository\TablettesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +24,7 @@ class TabletteController extends AbstractController
     {
         $data = new SearchData;
 
-        $form = $this->createForm(SearchMarqueForm::class, $data);
+        $form = $this->createForm(SearchMarqueFormTab::class, $data);
         $form->handleRequest($request);
 
         $tablettes = $this->repoTab->findSearchData($data);
