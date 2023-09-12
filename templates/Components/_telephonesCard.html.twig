@@ -1,4 +1,4 @@
-<div class="block-card" id="telephone-{{ telephone.id }}">
+<div class="block-card" id="telephone-{{ telephone.id }}" data-aos="fade-up" data-aos-offset="200" data-aos-duration="100" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
 	<div class="block-card-content row">
 		<a href="{{ path('telephone.show', {slug: telephone.slug}) }}">
 			<h1 class="text-center">{{ telephone.nom|sanitize_html|striptags }}</h1>

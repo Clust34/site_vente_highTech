@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block metaDesc %}
+	<meta name="description" content="{{ telephone.metaDescription }}">
+{% endblock %}
+
 {% block title %}
 	Fiche produit
 	{{ telephone.nom }}

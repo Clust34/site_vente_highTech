@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block metaDesc %}
+	<meta name="description" content="{{ ordinateur.metaDescription }}">
+{% endblock %}
+
 {% block title %}
 	Fiche produit
 	{{ ordinateur.nom }}

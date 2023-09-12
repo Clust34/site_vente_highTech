@@ -1,4 +1,4 @@
-<div class="block-card" id="ordinateur-{{ ordinateur.id }}">
+<div class="block-card" id="ordinateur-{{ ordinateur.id }}" data-aos="fade-up" data-aos-offset="200" data-aos-duration="100" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
 	<div class="block-card-content row">
 		<a href="{{ path('ordinateur.show', {slug: ordinateur.slug}) }}">
 			<h1 class="text-center">{{ ordinateur.nom|sanitize_html|striptags }}</h1>

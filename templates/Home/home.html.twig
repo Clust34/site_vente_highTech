@@ -8,8 +8,8 @@
 {% block body %}
 	<section class="container mt-4">
 		{% include 'Home/_sliderHome.html.twig' %}
-		<h1 class="text-center mb-4 mt-4">Page d'accueil</h1>
-		<h2 class="mb-4 mt-4">Quelques Téléphones</h2>
+		<h2 class="mt-4">Nos derniers Téléphones</h2>
+		<hr class="mb-4">
 		<div>
 			<a href="{{ path('.telephone')}}" class="btn btn-primary">Voir tout</a>
 		</div>
@@ -18,7 +18,8 @@
 				{% include 'Components/_telephonesCard.html.twig' %}
 			{% endfor %}
 		</div>
-		<h2 class="mb-4 mt-4">Quelques Tablettes</h2>
+		<h2 class="mt-4">Nos dernières Tablettes</h2>
+		<hr class="mb-4">
 		<div>
 			<a href="{{ path('.tablette')}}" class="btn btn-primary">Voir tout</a>
 		</div>
@@ -27,7 +28,8 @@
 				{% include 'Components/_tablettesCard.html.twig' %}
 			{% endfor %}
 		</div>
-		<h2 class="mb-4 mt-4">Quelques Ordinateurs</h2>
+		<h2 class="mt-4">Nos derniers Ordinateurs</h2>
+		<hr class="mb-4">
 		<div>
 			<a href="{{ path('.ordinateur')}}" class="btn btn-primary">Voir tout</a>
 		</div>

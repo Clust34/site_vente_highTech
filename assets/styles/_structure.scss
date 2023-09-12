@@ -21,6 +21,7 @@ body {
 .logo {
   color: $text-color;
   font-size: 3em;
+  transition: all 0.4s ease-in-out;
 
   &:hover {
     color: $secondary;
@@ -243,4 +244,9 @@ section {
   &:hover {
     box-shadow: $box-shadow;
   }
+}
+
+hr {
+  border: 1px solid $primary;
+  width: 75%;
 }

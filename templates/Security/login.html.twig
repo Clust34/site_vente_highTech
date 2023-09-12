@@ -12,9 +12,9 @@
 	{% endif %}
 	<section class="container-login mt-4">
 		<h1 class="text-center mt-4 mb-4">Page de connection</h1>
-		<form action="{{ path('app.login') }}" method="post" class="mt-4 form">
+		<form action="{{ path('app.login') }}" method="post" class="mt-4 form form-login">
 			<div class="form-row-login">
-				<div class="form-row-login-midle">
+				<div class="form-row-login-midle form-login-email">
 					<label for="username">Email :
 					</label>
 					<input type="text" id="username" name="_username" value="{{ last_username }}">
@@ -26,7 +26,7 @@
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 				</div>
 			</div>
-			<div class="form-email">
+			<div class="form-email text-center">
 				<a href="{{ path('app_forgot_password_request') }}" class="link">Mot de passe oublié</a>
 			</div>
 			<div class="text-center mb-4">

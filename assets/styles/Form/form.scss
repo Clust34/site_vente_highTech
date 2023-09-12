@@ -30,6 +30,7 @@
                 margin-bottom: 1em;
                 display: grid;
                 grid-template-columns: 25% 70%;
+                align-items: center;
                 gap: 1em;
             }
         }
@@ -42,26 +43,44 @@
                 margin-bottom: 1em;
                 display: grid;
                 grid-template-columns: 20% 70%;
+                align-items: center;
                 gap: 1em;
                 width: 45%;
             }
         }
 
         &-login {
-            @include flexbox(center, center, wrap, 3em);
+            @include flexbox(space-around, center, wrap, 3em);
             margin: 2em 1em;
+
+            &-midle {
+                width: 45%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 1em;
+
+                & > label {
+                    width: 35%;
+                }
+            }
         }
     }
 
     &-email {
         margin: 2em 1em;
 
-        & > div{
+        & > div {
             margin-bottom: 1em;
             display: grid;
-            grid-template-columns: 20% 70%;
+            grid-template-columns: 25% 70%;
             gap: 1em;
             width: 45%;
+
+            & > textarea {
+                border: 1px solid $text-color;
+                border-radius: $border-radius;
+            }
         }
     }
 
@@ -70,6 +89,17 @@
         background: $primary;
         border: 1px solid $text-color;
         border-radius: $border-radius;
+    }
+
+    &-switch {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & > input {
+            width: 20%;
+            margin: 1em;
+        }
     }
 }
 
@@ -96,6 +126,7 @@ input {
     border-radius: $border-radius;
     text-align: center;
     height: 2em;
+    width: 100%;
 }
 
 button {
@@ -103,7 +134,12 @@ button {
 }
 
 .select-roles > div {
-    @include flexbox(center, center, wrap, 2em);
+    @include flexbox(flex-start, center, wrap, 2em);
+}
+
+.select-roles > div > label {
+    width: 10%;
+    margin-left: 1em;
 }
 
 #user_roles {
@@ -112,6 +148,7 @@ button {
     margin: 2em 0;
     padding: 0.5em;
     border-radius: $border-radius;
+    width: 32%;
 }
 
 option {
@@ -123,13 +160,60 @@ option {
     .form{
         &-email {
             & > div {
-                grid-template-columns: 28% 70%;
+                display: flex;
+                flex-wrap: wrap;
                 width: 100%;
+
+                & > textarea {
+                    width: 100%;
+                }
             }
         }
 
         &-row-midle {
             width: 100%;
+
+            & > div {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
+
+        &-row-login-midle {
+            width: 100%;
+
+            & > label {
+                width: 45%;
+            }
+        }
+
+        &-row-password > div {
+            width: 100%;
+        }
+    }
+
+    .container-login {
+        width: 90%;
+    }
+
+    .form-login {
+        width: 100%;
+        margin: auto;
+
+        &-email {
+            gap: 3.1em;
+        }
+    }
+
+    #user_roles {
+        width: 63%;
+    }
+
+    .select-roles > div > label {
+        width: 19%;
+    }
+
+    #reset_password_request_form_email {
+        width: 80%;
     }
 }
