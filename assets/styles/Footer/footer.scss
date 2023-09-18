@@ -15,6 +15,10 @@
     &-list {
         @include flexbox(center, center, wrap, 4em);
         margin: 4em 0;
+        
+        &-item a {
+            transition: all ease-in-out .4s;
+        }
 
         &-item > a:hover {
             color: $secondary;

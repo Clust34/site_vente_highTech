@@ -8,7 +8,7 @@
 {% block body %}
 	<section class="container mt-4">
 		<h1 class="text-center mt-4 mb-4">Liste des messages</h1>
-		<table class="tableau fond-prim mt-4 pt-4 pb-4">
+		<table class="tableau fond-prim mt-4 pt-4 pb-4" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
 			<thead class="mt-4">
 				<tr>
 					<th>Date</th>
@@ -26,7 +26,9 @@
 						<td>{{ message.createdAt| format_datetime("full", "none") }}</td>
 						<td>{{ message.nom|sanitize_html|striptags }}</td>
 						<td>{{ message.prenom|sanitize_html|striptags }}</td>
-						<td>{{ message.email }}</td>
+						<td>
+							<a href="mailto:{{ message.email }}">{{ message.email }}</a>
+						</td>
 						<td>+33{{ message.telephone }}</td>
 						<td>{{ message.message|slice(0, 30)|sanitize_html|striptags }}...</td>
 						<td>
