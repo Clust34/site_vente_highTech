@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Page d'acceuil
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		{% include 'Home/_sliderHome.html.twig' %}
+		<h2 class="mt-4">Nos derniers Téléphones</h2>
+		<hr class="mb-4">
+		<div>
+			<a href="{{ path('.telephone')}}" class="btn btn-primary" data-aos="fade-up-right" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for telephone in telephones %}
+				{% include 'Components/_telephonesCard.html.twig' %}
+			{% endfor %}
+		</div>
+		<h2 class="mt-4">Nos dernières Tablettes</h2>
+		<hr class="mb-4">
+		<div>
+			<a href="{{ path('.tablette')}}" class="btn btn-primary" data-aos="fade-up-right" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for tablette in tablettes %}
+				{% include 'Components/_tablettesCard.html.twig' %}
+			{% endfor %}
+		</div>
+		<h2 class="mt-4">Nos derniers Ordinateurs</h2>
+		<hr class="mb-4">
+		<div>
+			<a href="{{ path('.ordinateur')}}" class="btn btn-primary" data-aos="fade-up-right" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">Voir tout</a>
+		</div>
+		<div class="block-list mt-4">
+			{% for ordinateur in ordinateurs %}
+				{% include 'Components/_ordinateursCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

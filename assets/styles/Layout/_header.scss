@@ -1,0 +1,277 @@
+.navbar {
+    background: $primary;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 1em 0;
+
+    &-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-left {
+        display: flex;
+        align-items: center;
+        gap: 3em;
+    }
+
+    &-nav {
+        @include flexbox(space-between, center, wrap, 6em);
+    }
+
+    &_brand {
+        font-weight: bold;
+        font-size: 1.4em;
+        margin-right: 1.5em;
+    }
+
+    &-link {
+        font-family: $font-primary;
+        width: 40%;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    &-btn {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    &-lien {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2em;
+        list-style-type: none;
+        color: $secondary;
+        font-size: 1.6em;
+    }
+
+    &-burger {
+        display: inline-block;
+        width: 30px;
+        height: 3px;
+        background-color: $secondary;
+        border-radius: 15px;
+        position: relative;
+        transition: all .4s ease-out;
+        padding: unset;
+
+        &::after,
+        &::before {
+            content: " ";
+            display: inline-block;
+            width: 30px;
+            height: 3px;
+            background-color: $secondary;
+            border-radius: 15px;
+            position: absolute;
+            transition: all .4s ease-out;
+        }
+
+        &::after {
+            top: 8px;
+        }
+
+        &::before {
+            top: -8px;
+        }
+    }
+}
+
+.link-burger{
+    display: none;
+
+    &.open .navbar-burger {
+        background: transparent;
+    }
+
+    &.open .navbar-burger::after {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &.open .navbar-burger::before {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    &-link {
+        color: $text-color;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+            background: #0b0b0b4b;
+        }
+
+        &:hover:last-child {
+            border-radius: 0 0 5px 5px;
+        }
+
+        &:hover:first-child {
+            border-radius: 5px 5px 0 0;
+        }
+    }
+
+    &-content{
+        display: none;
+        position: absolute;
+        border-radius: 5px;
+        background: $secondary;
+        z-index: 999;
+        top: 100%;
+        left: 0;
+        transition: all 0.4s ease-in-out;
+        
+    }
+
+    &-content > * {
+        padding: .6em 1em;
+        width: 76%;
+        text-align: center;
+
+       
+    }
+
+    &-content > *:not(:last-child) {
+        border-bottom: 1px solid $hover-text-color;
+    }
+
+    &:hover {
+        .dropdown-content {
+            display: block;
+        }
+    }
+
+    
+}
+
+span {
+    color: $text-color;
+    padding: 0.5em 1em;
+    background: $secondary;
+    border-radius: $border-radius;
+    transition: all 0.4s ease-in-out;
+    font-size: .8em;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        background: $hover-secondary;
+    }
+}
+
+.panier {
+    font-size: 1.5em;
+    color: $text-color;
+    transition: all ease-in-out .4s;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+.btn-nav {
+    font-size: .7em;
+}
+
+.see-off-full{
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .link-burger {
+        display: inline-block;
+
+        &.open {
+            height: 36px;
+        }
+    }
+
+    .navbar-content {
+        @include flexbox(space-between);
+    }
+
+    .navbar-links {
+        display: none;
+        transform: scaleY(0);
+
+        &.open {
+            display: block;
+            transform: scaleY(1);
+        }
+    }
+
+    .nav-links-app {
+        display: none;
+        transform: scaleY(0);
+        z-index: 999;
+
+        &.open {
+            display: block;
+            transform: scaleY(1);
+        }
+    }
+    .navbar-links ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: $primary;
+        color: $text-color;
+        gap: 0;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform .4s ease-in-out;
+    }
+
+    .navbar-links ul li {
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    .navbar-links ul li{
+        border: 1px solid $text-color;
+    }
+
+    .navbar-links ul.open {
+        transform: scaleX(1);
+    }
+
+    .navbar-btn > a, 
+    .dropdown-content > a,
+    .admin-span {
+        font-size: 15px;
+    }
+
+    .navbar-content {
+        @include flexbox(space-between);
+    }
+
+    .navbar-btn {
+        @include flexbox(space-around, center, wrap, .5em);
+    }
+
+    .see-off-full {
+        display: inline-block;
+    }
+    
+    .btn-nav {
+        display: none;
+    }
+
+    .panier {
+        font-size: 2.5em;
+    }
+}

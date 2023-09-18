@@ -10,8 +10,10 @@
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
+        "knplabs/knp-gaufrette-bundle": "^0.8.0",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.22",
+        "stof/doctrine-extensions-bundle": "^1.8",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/doctrine-messenger": "6.3.*",
@@ -20,6 +22,7 @@
         "symfony/flex": "^2",
         "symfony/form": "6.3.*",
         "symfony/framework-bundle": "6.3.*",
+        "symfony/html-sanitizer": "6.3.*",
         "symfony/http-client": "6.3.*",
         "symfony/intl": "6.3.*",
         "symfony/mailer": "6.3.*",
@@ -35,12 +38,16 @@
         "symfony/string": "6.3.*",
         "symfony/translation": "6.3.*",
         "symfony/twig-bundle": "6.3.*",
+        "symfony/ux-autocomplete": "^2.10",
         "symfony/validator": "6.3.*",
         "symfony/web-link": "6.3.*",
         "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "6.3.*",
+        "symfonycasts/reset-password-bundle": "^1.17",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/intl-extra": "^3.7",
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^2.2"
     },
     "config": {
         "allow-plugins": {
@@ -91,6 +98,9 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "fakerphp/faker": "^1.23",
+        "hautelook/alice-bundle": "^2.12",
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "6.3.*",

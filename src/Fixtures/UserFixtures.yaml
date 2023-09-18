@@ -1,0 +1,15 @@
+App\Entity\User:
+  userAdmin:
+    nom: "Chapuis"
+    prenom: "Nicolas"
+    email: "nico@test.com"
+    roles: ['ROLE_ADMIN']
+    verifier: true
+    password: <hashUserPassword('Test1234!')>
+
+  user{1..10}:
+    nom: <lastName()>
+    prenom: <firstName()>
+    email: <email()>
+    verifier: <boolean()>
+    password: <hashUserPassword('Test1234!')>

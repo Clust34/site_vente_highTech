@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modification d'un article Téléphone
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Modification d'un article Téléphone</h1>
+	{% include 'Backend/Telephones/_form.html.twig' with { buttonLabel: 'Modifier' }%}
+{% endblock %}

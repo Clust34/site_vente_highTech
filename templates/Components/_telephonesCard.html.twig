@@ -1,0 +1,44 @@
+<div class="block-card" id="telephone-{{ telephone.id }}" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
+	<div class="block-card-content row">
+		<a href="{{ path('telephone.show', {slug: telephone.slug}) }}">
+			<h1 class="text-center">{{ telephone.nom|sanitize_html|striptags }}</h1>
+		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in telephone.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ telephone.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
+		{% if telephone.description|length < 150 %}
+			<p>{{ telephone.description|sanitize_html|striptags }}</p>
+		{% else %}
+			<p>{{ telephone.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ telephone.marque.nom }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ telephone.prix }}
+				€</p>
+			<p>stock :
+				{{ telephone.quantity }}</p>
+		</div>
+
+		{% if app.request.get('_route') == 'admin.telephones.index' %}
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ telephone.id }}" data-id="{{ telephone.id }}" {{ telephone.enable ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ telephone.id }}" class="form-check-label blog-card-actif {{ telephone.enable ? 'text-success' : 'text-danger' }}">
+						{{ telephone.enable ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.telephones.edit', {id: telephone.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Telephones/_deleteForm.html.twig' %}
+			</div>
+		{% else %}
+			<a href="{{ path('telephone.show', {slug: telephone.slug}) }}" class="btn btn-primary">En savoir plus</a>
+		{% endif %}
+	</div>
+</div>

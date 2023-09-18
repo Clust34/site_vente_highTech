@@ -1,0 +1,45 @@
+.block-detail {
+    @include flexbox(space-between, start, wrap, 1em);
+
+    width: 80%;
+    margin: auto;
+
+    &-slider {
+        width: 40%;
+        position: sticky;
+        top: 6rem;
+
+    }
+
+    &-content {
+        width: 40%;
+        
+    }
+    
+    .block-button {
+        @include flexbox(space-between, center, wrap, 1em);
+
+        & > a {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .block-detail{
+        &-slider,
+        &-content {
+            width: 100%;
+        }
+
+        &-slider {
+            position: static;
+          
+        }
+    }
+
+    .detail-slider {
+        height: 30vh !important;
+        
+    }
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Adiministration des marques
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Administration des marques</h1>
+		<a href="{{ path('admin.marque.create') }}" class="btn btn-primary mt-4 mb-4">Créer un nouvelle marque</a>
+		<div class="block-list mt-4">
+			{% for marque in marques %}
+				{% include 'Components/_marquesCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

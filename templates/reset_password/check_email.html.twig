@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Changement de mot de passe envoyer
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<div class="block-profile">
+			<p class="ml-4 mr-4 mt-4 mb-4">
+				Si votre compte existe, vous allez recevoir un email contenant un lien pour modifier votre mot de passe.
+								Ce lien expire dans
+				{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+			</p>
+			<p class="ml-4 mr-4 mt-4 mb-4">
+				Si vous n'avez pas reçut d'email, vérifé dans vos spam ou
+				<a class="link-password" href="{{ path('app_forgot_password_request') }}">recommencer</a>
+				.
+			</p>
+		</div>
+	</section>
+
+
+{% endblock %}

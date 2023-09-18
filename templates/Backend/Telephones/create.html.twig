@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'un article Téléphone
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Création d'un article téléphone</h1>
+	{% include 'Backend/Telephones/_form.html.twig' with { buttonLabel : 'Créer' } %}
+{% endblock %}

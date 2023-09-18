@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste des tablettes
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Toutes nos tablettes</h1>
+		<div class="div search-card">
+			<div class="search-card-pos">
+				{% include "Components/Article/_filter.html.twig" with {form: form} only %}
+			</div>
+			<div class="block-list mt-4 search-card-tel">
+				{% for tablette in tablettes %}
+					{% include 'Components/_tablettesCard.html.twig' %}
+				{% endfor %}
+			</div>
+		</div>
+
+	</section>
+{% endblock %}

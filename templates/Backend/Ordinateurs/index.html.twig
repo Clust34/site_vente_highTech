@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Adiministration des ordinateurs
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Administration des ordinateurs</h1>
+		<a href="{{ path('admin.ordinateurs.create') }}" class="btn btn-primary mt-4 mb-4">Créer un nouvel article</a>
+		<div class="block-list mt-4">
+			{% for ordinateur in ordinateurs %}
+				{% include 'Components/_ordinateursCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

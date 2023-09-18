@@ -1,0 +1,26 @@
+.search-card {
+    @include flexbox(flex-start, start);
+
+    &-pos {
+        width: 30%;
+        position: sticky;
+        top: 4.5rem;
+    }
+
+    &-tel {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-card {
+        &-pos {
+            width: 100%;
+            position: static;
+        }
+
+        &-tel {
+            width: 100%;
+        }
+    }
+}

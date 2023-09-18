@@ -1,0 +1,31 @@
+.block-profile {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    background: $primary;
+
+    &-row {
+        text-align: center;
+        margin: 1em 0;
+    }
+
+    h2 {
+        margin: 1em 2em;
+    }
+}
+
+
+/********** PASSWORD *********/
+
+.link-password {
+    border: 1px solid $secondary;
+    border-radius: $border-radius;
+    padding: 0.3em;
+    color: $secondary;
+    transition: all ease-in-out .4s;
+}
+
+.link-password:hover {
+    border: 1px solid $text-color;
+    border-radius: $text-color;
+    color: $text-color;
+}

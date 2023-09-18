@@ -1,0 +1,29 @@
+.tableau {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    width: 100%;
+}
+
+th, td {
+    padding-bottom: 2em;
+}
+td {
+    text-align: center;
+}
+
+button {
+    font-size: 1.3em;
+}
+.btn-row {
+    @include flexbox(center, center, wrap, 2em);
+}
+
+.fond-prim {
+    background: $primary;
+}
+
+@media screen and (max-width: 768px) {
+    tr {
+        @include flexbox();
+    }
+}

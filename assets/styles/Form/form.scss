@@ -1,0 +1,219 @@
+.container-login {
+    width: 60%;
+    margin: auto;
+}
+.block-title {
+    @include flexbox(space-between, center, wrap, 1em);
+
+    h1 {
+        margin-left: 2em;
+    }
+
+    p {
+        margin-right: 2em;
+    }
+}
+
+.form {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    background-color: $primary;
+
+    &-row {
+        @include flexbox(flex-start, center, wrap, 1em);
+        margin: 2em 1em;
+
+        &-midle {
+            width: 45%;
+
+            & > div{
+                margin-bottom: 1em;
+                display: grid;
+                grid-template-columns: 25% 70%;
+                align-items: center;
+                gap: 1em;
+            }
+        }
+
+        &-password {
+            @include flexbox();
+            margin: 2em 1em;
+
+            & > div{
+                margin-bottom: 1em;
+                display: grid;
+                grid-template-columns: 20% 70%;
+                align-items: center;
+                gap: 1em;
+                width: 45%;
+            }
+        }
+
+        &-login {
+            @include flexbox(space-around, center, wrap, 3em);
+            margin: 2em 1em;
+
+            &-midle {
+                width: 45%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 1em;
+
+                & > label {
+                    width: 35%;
+                }
+            }
+        }
+    }
+
+    &-email {
+        margin: 2em 1em;
+
+        & > div {
+            margin-bottom: 1em;
+            display: grid;
+            grid-template-columns: 25% 70%;
+            gap: 1em;
+            width: 45%;
+
+            & > textarea {
+                border: 1px solid $text-color;
+                border-radius: $border-radius;
+            }
+        }
+    }
+
+    &-filter {
+        width: 100%;
+        background: $primary;
+        border: 1px solid $text-color;
+        border-radius: $border-radius;
+    }
+
+    &-switch {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & > input {
+            width: 20%;
+            margin: 1em;
+        }
+    }
+}
+
+#marques {
+    display: grid;
+    grid-template-columns: 6% 10%;
+    gap: 1em;
+    margin: 1em;
+}
+
+.vich-image > a > img {
+    width: 100%;
+    margin-top: 1em;
+}
+.row {
+    @include flexbox(flex-start, center, wrap, 1em);
+
+    &-4 {
+        width: 20%;
+    }
+}
+input {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    text-align: center;
+    height: 2em;
+    width: 100%;
+}
+
+button {
+    font-size: 1.5em;
+}
+
+.select-roles > div {
+    @include flexbox(flex-start, center, wrap, 2em);
+}
+
+.select-roles > div > label {
+    width: 10%;
+    margin-left: 1em;
+}
+
+#user_roles {
+    text-align: center;
+    font-size: 1em;
+    margin: 2em 0;
+    padding: 0.5em;
+    border-radius: $border-radius;
+    width: 32%;
+}
+
+option {
+    margin: 4px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .form{
+        &-email {
+            & > div {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+
+                & > textarea {
+                    width: 100%;
+                }
+            }
+        }
+
+        &-row-midle {
+            width: 100%;
+
+            & > div {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        &-row-login-midle {
+            width: 100%;
+
+            & > label {
+                width: 45%;
+            }
+        }
+
+        &-row-password > div {
+            width: 100%;
+        }
+    }
+
+    .container-login {
+        width: 90%;
+    }
+
+    .form-login {
+        width: 100%;
+        margin: auto;
+
+        &-email {
+            gap: 3.1em;
+        }
+    }
+
+    #user_roles {
+        width: 63%;
+    }
+
+    .select-roles > div > label {
+        width: 19%;
+    }
+
+    #reset_password_request_form_email {
+        width: 80%;
+    }
+}

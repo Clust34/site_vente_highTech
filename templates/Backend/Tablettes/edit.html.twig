@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modification d'un article Tablette
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center mt-4">Modification d'un article Tablette</h1>
+	{% include 'Backend/Tablettes/_form.html.twig' with { buttonLabel: 'Modifier' }%}
+{% endblock %}

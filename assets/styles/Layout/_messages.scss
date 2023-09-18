@@ -1,0 +1,23 @@
+.alert {
+    padding: 2em 1em;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    &-danger {
+        background: rgba(244, 28, 28, 0.775);
+        color: $text-color;
+        border: rgba(244, 28, 28, 0.791);
+    }
+
+    &-success {
+        background: rgba(30, 228, 30, 0.397);
+        color: $text-color;
+        border: rgba(30, 228, 30, 0.808);
+    }
+
+    &-info {
+        background: #48455ade;
+        color: $white;
+        border: $heading;
+    }
+}

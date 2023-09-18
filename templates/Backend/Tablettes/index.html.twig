@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Adiministration des tablettes
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4">Administration des tablettes</h1>
+		<a href="{{ path('admin.tablettes.create') }}" class="btn btn-primary mt-4 mb-4">Créer un nouvel article</a>
+		<div class="block-list mt-4">
+			{% for tablette in tablettes %}
+				{% include 'Components/_tablettesCard.html.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

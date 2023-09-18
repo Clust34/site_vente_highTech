@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block metaDesc %}
+	<meta name="description" content="{{ tablette.metaDescription }}">
+{% endblock %}
+
+{% block title %}
+	Fiche produit
+	{{ tablette.nom }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<div class="block-detail">
+			<div class="block-detail-slider mt-4">
+				{% include 'Frontend/Tablettes/_sliderDetail.html.twig' %}
+			</div>
+			<div class="block-detail-content mt-4">
+				<h1 class="text-center mb-4">{{ tablette.nom|sanitize_html|striptags }}</h1>
+				<p class="mt-4 mb-4">Prix :
+					{{ tablette.prix }}
+					€</p>
+				<p class="mt-4 mb-4">Marque :
+					{{ tablette.marque.nom }}</p>
+				<p class="mt-4 mb-4">Description :
+
+					{{ tablette.description|sanitize_html }}</p>
+				<div class="block-button">
+					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
+					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
+				</div>
+				<a href="{{ path('.tablette') }}" class="btn btn-primary mt-4 mb-4 text-center">Retour à liste</a>
+			</div>
+
+		</div>
+	</section>
+{% endblock %}

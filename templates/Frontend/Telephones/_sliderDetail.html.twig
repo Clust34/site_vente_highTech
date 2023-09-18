@@ -1,0 +1,11 @@
+<div class="swiper detail-slider">
+	<div class="swiper-wrapper">
+		{% for image in telephone.images %}
+			<div class="swiper-slide swiper-detail-img">
+				<img src="{{ vich_uploader_asset(image) }}" alt="{{ telephone.nom }}">
+			</div>
+		{% endfor %}
+	</div>
+	<div class="swiper-button-next"></div>
+	<div class="swiper-button-prev"></div>
+</div>

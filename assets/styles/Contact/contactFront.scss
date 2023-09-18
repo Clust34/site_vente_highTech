@@ -1,0 +1,27 @@
+.block-carte {
+    @include flexbox(start, start, wrap, 2em);
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+
+    iframe {
+        width: 45%;
+    }
+
+    &-content {
+        @include flexbox(space-between, start, wrap, 2em);
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .block-carte {
+        iframe { 
+            width: 100%;
+        }
+
+        &-content {
+            @include flexbox(center, center, wrap, 2em);
+            width: 100%;
+        }
+    }
+}

@@ -1,1 +1,44 @@
+// Import des Variables SCSS
 @import "./_variables.scss";
+
+
+// Import Bootstrap Icons
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+// Import des mixins
+@import "./mixins.scss";
+
+// Import des structures règles et messages flash
+@import "./_structure.scss";
+@import "./Layout/_header.scss";
+@import "./Layout/messages.scss";
+
+
+
+// Import cards
+@import "./Cards/TelephonesCard.scss";
+@import "./Cards/userCard.scss";
+
+// Import Form
+@import "./Form/form.scss";
+
+// Import Table
+@import "./Table/userIndex.scss";
+
+// Import Detail
+@import "./Detail/detailProduit.scss";
+@import "./Detail/sliderDetail.scss";
+@import "./Detail/showMessage.scss";
+
+// Import Contact
+@import "./Contact/contactFront.scss";
+
+// Import Home
+@import "./Home/sliderHome.scss";
+@import "./Home/productPages.scss";
+
+// Import Footer
+@import "./Footer/footer.scss";
+
+// Import Panier
+@import "./Panier/panier.scss";

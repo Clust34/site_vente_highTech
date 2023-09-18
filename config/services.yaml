@@ -22,3 +22,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.directory_namer.telephone:
+        class: App\Service\TelephoneDirectoryNamer
+        public: true
+
+    app.directory_namer.tablette:
+        class: App\Service\TabletteDirectoryNamer
+        public: true
+
+    app.directory_namer.ordi:
+        class: App\Service\OrdiDirectoryNamer
+        public: true

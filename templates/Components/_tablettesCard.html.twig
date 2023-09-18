@@ -1,0 +1,44 @@
+<div class="block-card" id="tablette-{{ tablette.id }}" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
+	<div class="block-card-content row">
+		<a href="{{ path('tablette.show', {slug: tablette.slug}) }}">
+			<h1 class="text-center">{{ tablette.nom|sanitize_html|striptags }}</h1>
+		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in tablette.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ tablette.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
+		{% if tablette.description|length < 150 %}
+			<p>{{ tablette.description }}</p>
+		{% else %}
+			<p>{{ tablette.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ tablette.marque.nom }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ tablette.prix }}
+				€</p>
+			<p>stock :
+				{{ tablette.quantite }}</p>
+		</div>
+
+		{% if app.request.get('_route') == 'admin.tablettes.index' %}
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ tablette.id }}" data-id="{{ tablette.id }}" {{ tablette.actif ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ tablette.id }}" class="form-check-label blog-card-actif {{ tablette.actif ? 'text-success' : 'text-danger' }}">
+						{{ tablette.actif ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.tablettes.edit', {id: tablette.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Tablettes/_deleteForm.html.twig' %}
+			</div>
+		{% else %}
+			<a href="{{ path('tablette.show', {slug: tablette.slug}) }}" class="btn btn-primary">En savoir plus</a>
+		{% endif %}
+	</div>
+</div>

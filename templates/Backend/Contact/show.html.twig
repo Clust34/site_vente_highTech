@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Message de :
+	{{ message.nom }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<h1 class="text-center mt-4 mb-4">Message de
+			{{ message.nom }}</h1>
+		<div class="block-mess pt-4 pl-4 pr-4 pb-4">
+			<p class="mb-4">Envoyer par :
+				{{ message.nom|sanitize_html|striptags }}
+				{{ message.prenom|sanitize_html|striptags }}</p>
+			<p class="mb-4">Coordonnée :
+				{{ message.email }},
+				{{ message.telephone }}</p>
+			<p class="mb-4">Message :
+				<br>
+				{{ message.message|sanitize_html|striptags }}</p>
+		</div>
+		<a href="{{ path('admin.contact') }}" class="btn btn-primary mt-4 mb-4">Retour à la liste</a>
+	</section>
+
+{% endblock %}

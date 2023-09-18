@@ -1,0 +1,62 @@
+
+knp_gaufrette:
+    stream_wrapper: ~
+
+    adapters:
+        telephone_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/images/telephones'
+
+        tablette_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/images/tablettes'
+
+        ordi_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/images/ordis'
+
+    filesystems:
+        telephone_fs:
+            adapter: telephone_adapter
+
+        tablette_fs:
+            adapter: tablette_adapter
+
+        ordi_fs:
+            adapter: ordi_adapter
+
+
+vich_uploader:
+    db_driver: orm
+    storage: gaufrette
+
+    metadata:
+        type: attribute
+
+    mappings:
+        telephone_image:
+           uri_prefix: /images/telephones
+           upload_destination: telephone_fs
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           directory_namer: app.directory_namer.telephone
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true   
+
+        tablette_image:
+           uri_prefix: /images/tablettes
+           upload_destination: tablette_fs
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           directory_namer: app.directory_namer.tablette
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true
+   
+        ordi_image:
+           uri_prefix: /images/ordis
+           upload_destination: ordi_fs
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           directory_namer: app.directory_namer.ordi
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true

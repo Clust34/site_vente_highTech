@@ -1,0 +1,44 @@
+<div class="block-card" id="ordinateur-{{ ordinateur.id }}" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
+	<div class="block-card-content row">
+		<a href="{{ path('ordinateur.show', {slug: ordinateur.slug}) }}">
+			<h1 class="text-center">{{ ordinateur.nom|sanitize_html|striptags }}</h1>
+		</a>
+	</div>
+	<div class="block-card-img">
+		{% for image in ordinateur.images|slice(0, 1) %}
+			<img src="{{ vich_uploader_asset(image)}}" alt="{{ ordinateur.nom }}" loading="lazy">
+		{% endfor %}
+	</div>
+	<div class="block-card-content">
+		{% if ordinateur.description|length < 150 %}
+			<p>{{ ordinateur.description|sanitize_html|striptags }}</p>
+		{% else %}
+			<p>{{ ordinateur.description|slice(0, 150)|sanitize_html|striptags }}...</p>
+		{% endif %}
+		<p>Marque :
+			{{ ordinateur.marque.nom }}</p>
+		<div class="row">
+			<p>Prix :
+				{{ ordinateur.prix }}
+				€</p>
+			<p>stock :
+				{{ ordinateur.quantite }}</p>
+		</div>
+
+		{% if app.request.get('_route') == 'admin.ordinateurs.index' %}
+			<div class="blog-card-content">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="switch-actif-tag-{{ ordinateur.id }}" data-id="{{ ordinateur.id }}" {{ ordinateur.actif ? 'checked' }} js-switch-tag>
+					<label for="switch-actif-tag-{{ ordinateur.id }}" class="form-check-label blog-card-actif {{ ordinateur.actif ? 'text-success' : 'text-danger' }}">
+						{{ ordinateur.actif ? 'Actif' : 'Inactif' }}</label>
+				</div>
+			</div>
+			<div class="block-card-button justify-content-between">
+				<a href="{{ path('admin.ordinateurs.edit', {id: ordinateur.id}) }}" class="btn btn-secondary">Modifier</a>
+				{% include 'Backend/Ordinateurs/_deleteForm.html.twig' %}
+			</div>
+		{% else %}
+			<a href="{{ path('ordinateur.show', {slug: ordinateur.slug}) }}" class="btn btn-primary">En savoir plus</a>
+		{% endif %}
+	</div>
+</div>

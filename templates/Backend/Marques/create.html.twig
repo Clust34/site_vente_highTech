@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création d'une marque
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Création d'une marque</h1>
+	{% include 'Backend/Marques/_form.html.twig' with { buttonLabel : 'Créer' } %}
+{% endblock %}

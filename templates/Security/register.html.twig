@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Inscription
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-4">
+		<div class="block-title mt-4">
+			<h1 class="text-center">Inscription</h1>
+			<div>
+				<p>
+					<strong>Merci pour avoir choisi notre boutique.</strong>
+				</p>
+				<p>Veuillez remplir les champs ci-dessous.</p>
+			</div>
+		</div>
+		{{ form_start(form, {'attr': {'class': 'mt-4 form'}}) }}
+		<div class="form-row">
+			<div class="form-row-midle">{{ form_row(form.prenom) }}</div>
+			<div class="form-row-midle">{{ form_row(form.nom) }}</div>
+		</div>
+		<div class="form-row-password">{{ form_row(form.password) }}</div>
+		<div class="form-email">{{ form_row(form.email) }}</div>
+		<div class="form-row">
+			<div class="form-row-midle">{{ form_row(form.adresse) }}</div>
+			<div class="form-row-midle">{{ form_row(form.zipCode) }}</div>
+			<div class="form-row-midle">{{ form_row(form.ville) }}</div>
+		</div>
+		<div class="text-center mb-4">
+			<button type="submit" class="btn btn-primary">S'inscrire</button>
+		</div>
+		{{ form_end(form) }}
+	</section>
+
+{% endblock %}

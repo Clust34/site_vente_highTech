@@ -1,0 +1,12 @@
+.block-panier {
+    width: 100%;
+
+    &-img {
+        width: 80%;
+        margin: auto;
+
+        & > img {
+            width: 100%;
+        }
+    }
+}
