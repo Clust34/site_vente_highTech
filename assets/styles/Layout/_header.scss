@@ -106,6 +106,13 @@
     position: relative;
     display: inline-block;
 
+    &:hover {
+        .dropdown-content {
+            transition: all 1s ease-in-out;
+            display: block;          
+        }
+    }
+
     &-link {
         color: $text-color;
         transition: all 0.4s ease-in-out;
@@ -135,25 +142,20 @@
         
     }
 
+    &-content:hover {
+        transition: all 0.4s ease-in-out;
+    }
+
     &-content > * {
         padding: .6em 1em;
-        width: 76%;
-        text-align: center;
-
-       
+        width: 75%;
+        text-align: center;      
     }
 
     &-content > *:not(:last-child) {
         border-bottom: 1px solid $hover-text-color;
     }
 
-    &:hover {
-        .dropdown-content {
-            display: block;
-        }
-    }
-
-    
 }
 
 span {
@@ -163,7 +165,6 @@ span {
     border-radius: $border-radius;
     transition: all 0.4s ease-in-out;
     font-size: .8em;
-    transition: all 0.4s ease-in-out;
 
     &:hover {
         background: $hover-secondary;
