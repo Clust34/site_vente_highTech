@@ -14,6 +14,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 
 // Import Javascript
+import './js/slider';
 import './js/addCollectionInput';
 import './js/swiperDetail';
 import './js/swiperHome';
@@ -22,6 +23,7 @@ import './js/switchTelphoneActif';
 import './js/showPassword';
 import './js/switchTablettes';
 import './js/switchOrdinateurs';
+
 
 // Import assets/images 
 import './Images/construction.jpg';

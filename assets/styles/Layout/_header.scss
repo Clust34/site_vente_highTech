@@ -46,7 +46,7 @@
     &-lien {
         display: flex;
         justify-content: flex-end;
-        gap: 2em;
+        gap: 1em;
         list-style-type: none;
         color: $secondary;
         font-size: 1.6em;
@@ -102,19 +102,42 @@
     }
 }
 
+.desktop {
+    width: 35%;
+    display: flex;
+    justify-content: space-around;
+
+    & a {
+        font-size: 1.2em;
+        color: $text-color;
+        transition: all .4s ease-in-out;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
 
     &:hover {
         .dropdown-content {
-            transition: all 1s ease-in-out;
-            display: block;          
+            height: 302px;
+            opacity: 1;         
         }
     }
 
+    &-mobile {
+        position: relative;
+        display: none;
+    }
+
     &-link {
-        color: $text-color;
+        color: $primary;
         transition: all 0.4s ease-in-out;
 
         &:hover {
@@ -131,20 +154,18 @@
     }
 
     &-content{
-        display: none;
         position: absolute;
         border-radius: 5px;
         background: $secondary;
         z-index: 999;
-        top: 100%;
+        top: 134%;
         left: 0;
-        transition: all 0.4s ease-in-out;
-        
+        height: 0;
+        opacity: 0;
+        transition: all .4s ease-in-out;
+        overflow: hidden;
     }
 
-    &-content:hover {
-        transition: all 0.4s ease-in-out;
-    }
 
     &-content > * {
         padding: .6em 1em;
@@ -153,14 +174,14 @@
     }
 
     &-content > *:not(:last-child) {
-        border-bottom: 1px solid $hover-text-color;
+        border-bottom: 1px solid $primary;
     }
 
 }
 
 span {
-    color: $text-color;
-    padding: 0.5em 1em;
+    color: $primary;
+    padding: 1em 1em;
     background: $secondary;
     border-radius: $border-radius;
     transition: all 0.4s ease-in-out;
@@ -183,12 +204,25 @@ span {
 
 .btn-nav {
     font-size: .7em;
+
 }
 
 .see-off-full{
     display: none;
 }
+
 @media screen and (max-width: 768px) {
+    .dropdown-mobile {
+        display: inline-block;
+
+        &:hover {
+            .dropdown-content {
+                height: 192px;
+                opacity: 1;          
+            }
+        }
+    }
+
     .link-burger {
         display: inline-block;
 
@@ -274,5 +308,13 @@ span {
 
     .panier {
         font-size: 2.5em;
+    }
+
+    .span {
+        padding: 0.5em 1em;
+    }
+
+    .desktop {
+        display: none;
     }
 }

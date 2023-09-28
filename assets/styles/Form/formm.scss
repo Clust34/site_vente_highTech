@@ -1,0 +1,30 @@
+.container-login {
+    width: 90%;
+}
+
+input {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    text-align: center;
+    height: 2em;
+    width: 80%;
+}
+
+.form {
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    background-color: $primary;
+
+    &-row-login-midle {
+        @include flexbox(flex-start, center, wrap, 1em);
+
+        & label{
+    width: 20%;
+        }
+        & input {
+            width: 50%;
+        }
+    }
+   
+
+}
