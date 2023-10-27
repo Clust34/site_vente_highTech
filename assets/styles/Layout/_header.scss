@@ -106,6 +106,7 @@
     width: 35%;
     display: flex;
     justify-content: space-around;
+    gap: 2em;
 
     & a {
         font-size: 1.2em;
@@ -137,7 +138,7 @@
     }
 
     &-link {
-        color: $primary;
+        color: $white;
         transition: all 0.4s ease-in-out;
 
         &:hover {
@@ -174,21 +175,22 @@
     }
 
     &-content > *:not(:last-child) {
-        border-bottom: 1px solid $primary;
+        border-bottom: 1px solid $white;
     }
 
 }
 
 span {
-    color: $primary;
-    padding: 1em 1em;
+    color: $white;
+    padding: .7em 1em;
     background: $secondary;
     border-radius: $border-radius;
     transition: all 0.4s ease-in-out;
-    font-size: .8em;
+    font-size: 1em;
 
     &:hover {
         background: $hover-secondary;
+
     }
 }
 

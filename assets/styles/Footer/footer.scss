@@ -1,10 +1,10 @@
 .block-footer {
     background-color: $primary;
-    padding-bottom: 4em;
+    padding-bottom: 2em;
 
     &-social {
         font-size: 2em;
-        padding-top: 2em;
+        padding-top: 1em;
         transition: all ease-in-out .4s;
 
         & > a:hover {
@@ -13,8 +13,8 @@
     }
 
     &-list {
-        @include flexbox(center, center, wrap, 4em);
-        margin: 4em 0;
+        @include flexbox(center, center, wrap, 2em);
+        margin: 2em .5em;
         
         &-item a {
             transition: all ease-in-out .4s;
