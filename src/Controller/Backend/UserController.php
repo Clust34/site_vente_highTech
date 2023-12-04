@@ -23,6 +23,7 @@ class UserController extends AbstractController
     #[Route('', name: '.index', methods: ['GET'])]
     public function index(): Response
     {
+        // test git
         return $this->render('Backend/User/index.html.twig', [
             'users' => $this->repo->findAll()
         ]);
