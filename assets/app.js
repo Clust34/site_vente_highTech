@@ -14,6 +14,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 
 // Import Javascript
+import './js/slider';
 import './js/addCollectionInput';
 import './js/swiperDetail';
 import './js/swiperHome';
@@ -23,9 +24,10 @@ import './js/showPassword';
 import './js/switchTablettes';
 import './js/switchOrdinateurs';
 
+
 // Import assets/images 
-import './Images/lac-mountain.jpg';
-import './Images/lac-seul.jpg';
-import './Images/mountain-landscape-g71f619bda_1920.jpg';
-import './Images/neige-trace.jpeg';
 import './Images/construction.jpg';
+import './Images/logo.1.ico';
+import './Images/ban-laptop.jpg';
+import './Images/ban-tablette.png';
+import './Images/ban-telephone.jpg';

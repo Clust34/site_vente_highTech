@@ -74,6 +74,7 @@ h6 {
 
 
 p {
+  color: $text-color;
   font-size: 1em;
   line-height: 120%;
   margin: 10px 0;
@@ -205,17 +206,20 @@ section {
 
   &-primary {
     background: $secondary;
-    color: $text-color;
+    color: $white;
+    transition: all 0.4s ease-in-out !important;
 
     &:hover {
-      background: $hover-secondary;
-      color: $text-color;
+      background: transparent;
+      color: $secondary;
+      border: 1px solid $secondary;
     }
   }
 
   &-secondary {
     background: $tertiary;
     color: $text-color;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
       background: $secondary;
@@ -226,6 +230,7 @@ section {
   &-danger {
     background: $danger;
     color: $white;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
       background: $danger-hover;

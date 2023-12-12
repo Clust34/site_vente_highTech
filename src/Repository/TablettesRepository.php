@@ -40,6 +40,15 @@ class TablettesRepository extends ServiceEntityRepository
         }
     }
 
+    public function findSlug($search){
+        $query = $this->createQueryBuilder('tel')
+            ->select('tel.slug')
+            ->where('tel.slug = (:search)')
+            ->setParameter('search', $search);
+
+        return $query->getQuery()
+            ->getResult();
+    }
     /**
      * Find the latest article with limit or not and all article or just enable article.
      *
@@ -101,13 +110,13 @@ class TablettesRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Tablettes
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+       public function findOneBySlug($value): ?Tablettes
+       {
+           return $this->createQueryBuilder('t')
+               ->andWhere('t.slug = :val')
+               ->setParameter('val', $value)
+               ->getQuery()
+               ->getOneOrNullResult()
+           ;
+       }
 }

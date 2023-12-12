@@ -5,10 +5,16 @@
 				<i class="bi bi-pc-display logo"></i>
 			</a>
 		</div>
-		<div class="dropdown">
+		<div class="desktop">
+			<a href="{{ path('.telephone') }}" class="">Téléphones</a>
+			<a href="{{ path('.tablette') }}" class="">Tablettes</a>
+			<a href="{{ path('.ordinateur') }}" class="">Ordinateurs</a>
+			<a href="{{ path('app.contact') }}" class="">Contact</a>
+		</div>
+		<div class="dropdown-mobile">
 			<span class="admin-span">
 				Nos produits
-				<i class="bi bi-caret-down-fill"></i>
+				<i class="bi bi-caret-down-fill fleche"></i>
 			</span>
 			<div class="navbar-right dropdown-content">
 				<a href="{{ path('.telephone') }}" class="dropdown-link">Téléphones</a>
@@ -25,7 +31,7 @@
 						<div class="dropdown btn-nav">
 							<span class="admin-span">
 								Admin
-								<i class="bi bi-caret-down-fill"></i>
+								<i class="bi bi-caret-down-fill fleche"></i>
 							</span>
 							<div class="dropdown-content">
 								<a href="{{ path('admin.telephones.index') }}" class="dropdown-link">Téléphones</a>
@@ -37,7 +43,7 @@
 							</div>
 						</div>
 					{% endif %}
-					<a href="{{ path('.panier') }}">
+					<a href="{{ path('.panier.index') }}">
 						<i class="bi bi-cart4 panier"></i>
 					</a>
 					<a class="btn btn-primary btn-nav" href="{{ path('compte') }}">Mon Compte</a>

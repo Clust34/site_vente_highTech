@@ -11,10 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    public function __construct(
-        private TelephonesRepository $telephRepo
-    ) {
-    }
+    // public function __construct(
+    //     private TelephonesRepository $telephRepo
+    // ) {
+    // }
     #[Route('', name: 'app.homepage', methods: ['GET'])]
     public function index(TelephonesRepository $telephRepo, OrdinateursRepository $repoOrdi, TablettesRepository $repoTab): Response
     {

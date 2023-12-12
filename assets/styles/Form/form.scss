@@ -155,7 +155,24 @@ option {
     margin: 4px;
 }
 
+#user > div,
+#registration_form > div,
+#message_form > div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
 
+    & > input {
+        width: 8%;
+    }
+
+    & > label {
+        width: 40%;
+    }
+}
 @media screen and (max-width: 768px) {
     .form{
         &-email {
@@ -215,5 +232,18 @@ option {
 
     #reset_password_request_form_email {
         width: 80%;
+    }
+
+    #user > div,
+    #registration_form > div,
+    #message_form > div {
+    
+        & > input {
+            width: 20%;
+        }
+    
+        & > label {
+            width: 80%;
+        }
     }
 }

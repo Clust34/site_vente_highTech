@@ -80,6 +80,15 @@ class TelephonesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findSlug($search){
+        $query = $this->createQueryBuilder('tel')
+            ->select('tel')
+            ->where('tel.slug = (:search)')
+            ->setParameter('search', $search);
+
+        return $query->getQuery()
+            ->getResult();
+    }
     /**
      * Find article by marque
      *
@@ -121,13 +130,13 @@ class TelephonesRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Telephones
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+       public function findOneBySlug($value): ?Telephones
+       {
+           return $this->createQueryBuilder('t')
+               ->andWhere('t.slug = :val')
+               ->setParameter('val', $value)
+               ->getQuery()
+               ->getOneOrNullResult()
+           ;
+       }
 }

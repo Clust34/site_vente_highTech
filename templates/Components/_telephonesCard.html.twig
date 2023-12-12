@@ -5,9 +5,11 @@
 		</a>
 	</div>
 	<div class="block-card-img">
-		{% for image in telephone.images|slice(0, 1) %}
-			<img src="{{ vich_uploader_asset(image)}}" alt="{{ telephone.nom }}" loading="lazy">
-		{% endfor %}
+		<a href="{{ path('telephone.show', {slug: telephone.slug}) }}">
+			{% for image in telephone.images|slice(0, 1) %}
+				<img src="{{ vich_uploader_asset(image)}}" alt="{{ telephone.nom }}" loading="lazy">
+			{% endfor %}
+		</a>
 	</div>
 	<div class="block-card-content">
 		{% if telephone.description|length < 150 %}
