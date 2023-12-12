@@ -27,7 +27,7 @@
 					{{ telephone.description|sanitize_html }}</article>
 				<div class="block-button">
 					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
-					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
+					<a href="{{ path('.panier.ajout', {id: telephone.id}) }}" class="text-center btn btn-secondary">Ajouter au panier</a>
 				</div>
 				<a href="{{ path('.telephone') }}" class="btn btn-primary mt-4 mb-4 text-center">Retour à liste</a>
 			</div>
