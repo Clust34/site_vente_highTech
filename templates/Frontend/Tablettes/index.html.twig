@@ -28,7 +28,7 @@
 					{{ tablette.description|sanitize_html }}</p>
 				<div class="block-button">
 					<a href="{{ path('app.contact') }}" class="text-center link">Une question ? Contacter nous.</a>
-					<a href="#" class="text-center btn btn-secondary">Ajouter au panier</a>
+					<a href="{{ path('.panier.ajout', {id: tablette.id}) }}" class="text-center btn btn-secondary">Ajouter au panier</a>
 				</div>
 				<a href="{{ path('.tablette') }}" class="btn btn-primary mt-4 mb-4 text-center">Retour à liste</a>
 			</div>

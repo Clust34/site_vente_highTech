@@ -5,9 +5,11 @@
 		</a>
 	</div>
 	<div class="block-card-img">
-		{% for image in ordinateur.images|slice(0, 1) %}
-			<img src="{{ vich_uploader_asset(image)}}" alt="{{ ordinateur.nom }}" loading="lazy">
-		{% endfor %}
+		<a href="{{ path('ordinateur.show', {slug: ordinateur.slug}) }}">
+			{% for image in ordinateur.images|slice(0, 1) %}
+				<img src="{{ vich_uploader_asset(image)}}" alt="{{ ordinateur.nom }}" loading="lazy">
+			{% endfor %}
+		</a>
 	</div>
 	<div class="block-card-content">
 		{% if ordinateur.description|length < 150 %}

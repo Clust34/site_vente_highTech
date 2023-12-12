@@ -80,7 +80,7 @@ class OrdinateursController extends AbstractController
         $ordinateur = $this->repoOrdi->find($request->get('id', 0));
 
         if (!$ordinateur instanceof Ordinateurs) {
-            $this->addFlash('error', 'Tablettes non trouvé');
+            $this->addFlash('error', 'Ordinateur non trouvé');
 
             return $this->redirectToRoute('admin.ordinateurs.index');
         }

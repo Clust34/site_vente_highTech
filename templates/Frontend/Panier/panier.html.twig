@@ -7,11 +7,78 @@
 
 {% block body %}
 	<section class="container">
-		<div class="block-panier">
+		{# <div class="block-panier">
 			<h1 class="text-center mb-4 mt-4">Page en cours de construction</h1>
 			<div class="block-panier-img">
 				<img src="{{asset('build/images/construction.jpg')}}" alt="chantier de construction de site internet">
 			</div>
-		</div>
+		</div> #}
+		<section class="container mt-4">
+		<h1 class="text-center mt-4 mb-4">Panier</h1>
+		<table class="tableau mt-4 pt-4 pb-4" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false" data-aos-anchor-placement="bottom">
+			<thead class="mb-4">
+				<tr>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Quantité</th>
+					<th>Total</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for element in data %}
+					<tr>
+						<td>{{ element.telephone.nom }}</td>
+						<td>{{ element.telephone.prix }} €</td>
+						<td>{{ element.quantity }}</td>
+						<td>{{ element.quantity * element.telephone.prix }} €</td>
+						<td>
+							<a href="{{ path('.panier.ajout', {id: element.telephone.id}) }}" class='btn btn-primary'>+</a>
+							<a href="{{ path('.panier.remove', {id: element.telephone.id}) }}" class='btn btn-secondary'>-</a>
+							<a href="{{ path('.panier.delete', {id: element.telephone.id}) }}" class='btn btn-danger'>supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+				{% for element in dataTab %}
+					<tr>
+						<td>{{ element.tablette.nom }}</td>
+						<td>{{ element.tablette.prix }} €</td>
+						<td>{{ element.quantity }}</td>
+						<td>{{ element.quantity * element.tablette.prix }} €</td>
+						<td>
+							<a href="{{ path('.panier.ajout', {id: element.tablette.id}) }}" class='btn btn-primary'>+</a>
+							<a href="{{ path('.panier.remove', {id: element.tablette.id}) }}" class='btn btn-secondary'>-</a>
+							<a href="{{ path('.panier.delete', {id: element.tablette.id}) }}" class='btn btn-danger'>supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+				{% for element in dataOrdi %}
+					<tr>
+						<td>{{ element.ordinateur.nom }}</td>
+						<td>{{ element.ordinateur.prix }} €</td>
+						<td>{{ element.quantity }}</td>
+						<td>{{ element.quantity * element.ordinateur.prix }} €</td>
+						<td>
+							<a href="{{ path('.panier.ajout', {id: element.ordinateur.id}) }}" class='btn btn-primary'>+</a>
+							<a href="{{ path('.panier.remove', {id: element.ordinateur.id}) }}" class='btn btn-secondary'>-</a>
+							<a href="{{ path('.panier.delete', {id: element.ordinateur.id}) }}" class='btn btn-danger'>supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+				{% if data is empty and dataTab is empty and dataOrdi is empty %}
+					<tr>
+						<td>Votre panier est vide</td>
+					</tr>
+				{% endif %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>Total</td>
+					<td>{{ total }} €</td>
+					<td><a href="{{ path('.panier.empty') }}" class="btn btn-danger">Vider</a></td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
 	</section>
 {% endblock %}
